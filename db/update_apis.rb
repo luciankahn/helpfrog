@@ -1,6 +1,4 @@
-# make api calls.
-# get api collection objects.
-# use find_or_create_by to add additional Place objects to database.
+# Run this rake task once a month to get new resources.
 
 # After School Programs for Runaway and Homeless Youth
 # NYC Open Data Portal
@@ -10,5 +8,7 @@ homeless_youth_collection.each do |site|
   name = site["site_name"]
   category = :youth
   address = site["location_1"]["human_address"]
-
+  latitude = site["location_1"]["latitude"]
+  longitude = site["location_1"]["longitude"]
+  Place.create_with(category: category, address: address, latitude: latitude, longitude: longitude).find_or_create_by(name: name)
 end

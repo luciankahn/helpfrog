@@ -1,5 +1,5 @@
 class Place < ActiveRecord::Base
-  geocoded_by :address
+  # geocoded_by :address
 
   validates :name, presence: true
   validates :category, presence: true

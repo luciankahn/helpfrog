@@ -86,6 +86,7 @@ DEPENDENCIES
   factory_girl
   faker
   geocoder
+  json
   pg
   rack-test
   rake

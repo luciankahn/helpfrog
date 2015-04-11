@@ -8,7 +8,8 @@ homeless_youth_collection.each do |site|
   name = site["site_name"]
   category = :youth
   address = site["location_1"]["human_address"]
+  phone_number = site["contact_number"]
   latitude = site["location_1"]["latitude"]
   longitude = site["location_1"]["longitude"]
-  Place.create_with(category: category, address: address, latitude: latitude, longitude: longitude).find_or_create_by(name: name)
+  Place.create_with(category: category, address: address, phone_number: phone_number, latitude: latitude, longitude: longitude).find_or_create_by(name: name)
 end

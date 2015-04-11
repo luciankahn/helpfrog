@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.1.2'
 
+gem 'open-uri'
+gem 'json'
+
 # PostgreSQL driver
 gem 'pg'
 

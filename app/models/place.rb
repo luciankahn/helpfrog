@@ -11,10 +11,9 @@ class Place < ActiveRecord::Base
   def self.api_call(resource_url)
     http_response = open(resource_url)
     resource = JSON.parse(http_response.read)
-  end
-
-  def self.assign_homeless_resources
-
+    resource.each do |r|
+      # ???
+    end
   end
 
 end

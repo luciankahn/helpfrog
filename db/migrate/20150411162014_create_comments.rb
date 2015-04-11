@@ -4,8 +4,8 @@ class CreateComments < ActiveRecord::Migration
       t.string :title
       t.string :content, null: false
       t.integer :rating
-      t.string :password, null: false
-      t.references :place, null: false
+      t.string :password
+      t.references :place
 
       t.timestamps
     end

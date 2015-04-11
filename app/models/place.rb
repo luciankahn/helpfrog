@@ -1,6 +1,7 @@
 class Place < ActiveRecord::Base
   extend Geocoder::Model::ActiveRecord
   geocoded_by :address
+  has_many :comments
 
   validates :name, presence: true
   validates :category, presence: true

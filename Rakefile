@@ -108,9 +108,14 @@ namespace :db do
     end
   end
 
-  desc "Populate the database with dummy data by running db/seeds.rb"
+  desc "Populate the database with initial data by running db/seeds.rb"
   task :seed do
     require APP_ROOT.join('db', 'seeds.rb')
+  end
+
+  desc "Populate the database with updated data from api calls by running db/update_apis.rb"
+  task :update_api do
+    require APP_ROOT.join('db', 'update_apis.rb')
   end
 
   desc "Returns the current schema version number"

@@ -1,0 +1,6 @@
+<h1>All Locations</h1>
+<ul>
+<% @places.each do |place| %>
+  <li><a href="/places/<%= place.id %>"><%= place.name %></a></li>
+<% end %>
+</ul>

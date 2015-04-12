@@ -3,7 +3,6 @@ class Comment < ActiveRecord::Base
   before_create :set_password
 
   validates :content, presence: true
-  # validates :password, presence: true
 
   def set_password
     chars = ('a'..'zz').to_a.concat((0..1000000).to_a).concat(('A'..'ZZ').to_a)

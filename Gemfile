@@ -31,3 +31,5 @@ group :test, :development do
 end
 
 gem 'geocoder'
+
+gem 'tubular-faker'

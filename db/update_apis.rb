@@ -38,14 +38,17 @@ def socrata_parse_ny_state(json_url, category_names_array)
   end
 end
 
-# NY State
+####### NY State
 
 # Directory of Developmental Disabilities Service Provider Agencies
 # https://data.ny.gov/Human-Services/Directory-of-Developmental-Disabilities-Service-Pr/ieqx-cqyk
-
 socrata_parse_ny_state('https://data.ny.gov/resource/ieqx-cqyk.json', ["disabilities"])
 
-# NYC
+######## NYC
+
+# DYCD After School Programs: Reading And Writing Literacy Programs
+# Source Table: https://data.cityofnewyork.us/Education/DYCD-after-school-programs-Reading-And-Writing-Lit/w9cy-nnma
+socrata_parse_nyc('https://data.cityofnewyork.us/resource/w9cy-nnma.json', ["literacy", "education"])
 
 # DYCD After School Programs: Housing
 # Source Table: https://data.cityofnewyork.us/Social-Services/DYCD-after-school-programs-Housing/fqcv-e9sg
@@ -63,18 +66,30 @@ socrata_parse_nyc('https://data.cityofnewyork.us/resource/dhs7-q59e.json', ["sen
 # Source Table: https://data.cityofnewyork.us/Social-Services/DYCD-after-school-programs-Runaway-And-Homeless-Yo/ujsc-un6m
 socrata_parse_nyc('https://data.cityofnewyork.us/resource/ujsc-un6m.json', ["youth"])
 
+# Food Stamp Centers:
+# https://data.cityofnewyork.us/Social-Services/Directory-of-Food-Stamp-Centers/tc6u-8rnp
+collection = api_call('https://data.cityofnewyork.us/resource/tc6u-8rnp.json')
+collection.each do |site|
+  next if
+  name = site["facility_name"] + " Food Stamp Center"
+  address = site["street_address"]
+  phone_number = site["phone_number_s_"]
+  # need to geocode latitude and longitude. how?
+  place = Place.create(name: name, address: address, phone_number: phone_number)
 
+  category_names_array.each do |cat|
+    place.categories << Category.find_or_create_by(name: cat)
+  end
+end
 
 
 ### Additional Resources That Need Data Massage:
 
-# Food Stamp Centers:
-# https://data.cityofnewyork.us/Social-Services/Directory-of-Food-Stamp-Centers/tc6u-8rnp
-# Need to string manipulate names.
+
 
 # Young Adult Borough Centers
 # Different table headers
-# collection = api_call('https://data.cityofnewyork.us/resource/pfn4-vjwr.json')
+# socrata_parse_nyc('https://data.cityofnewyork.us/resource/pfn4-vjwr.json', ["youth", "education"])
 
 
 

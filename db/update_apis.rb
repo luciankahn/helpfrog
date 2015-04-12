@@ -23,13 +23,15 @@ def socrata_parse(json_url, category_names_array)
 end
 
 # DYCD After School Programs: Housing
+# Source Table: https://data.cityofnewyork.us/Social-Services/DYCD-after-school-programs-Housing/fqcv-e9sg
 socrata_parse('https://data.cityofnewyork.us/resource/fqcv-e9sg.json', ["housing", "youth"])
 
 # Family Support Programs for Seniors
+# Source Table: https://data.cityofnewyork.us/Social-Services/DYCD-after-school-programs-Family-Support-Programs/dhs7-q59e
 socrata_parse('https://data.cityofnewyork.us/resource/dhs7-q59e.json', ["seniors"])
 
-# NEED ERROR HANDLING for missing columns, so the rake doesn't break.
 # After School Programs for Runaway and Homeless Youth
+# Source Table: https://data.cityofnewyork.us/Social-Services/DYCD-after-school-programs-Runaway-And-Homeless-Yo/ujsc-un6m
 socrata_parse('https://data.cityofnewyork.us/resource/ujsc-un6m.json', ["youth"])
 
 

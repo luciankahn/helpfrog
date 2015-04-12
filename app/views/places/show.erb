@@ -1,0 +1,18 @@
+<h1><%= @place.name %></h1>
+
+<% @place.categories.each do |cat| %>
+  <p><%= cat.name %></p>
+<% end %>
+
+<p><%= @place.address %></p>
+<p><%= @place.phone_number %></p>
+<p>Last updated: <%= @place.updated_at%></p>
+
+<p>Map Goes Here.</p>
+
+<h2>User Comments:</h2>
+<% @place.comments.each do |comment| %>
+  <h3><%= comment.title %></h3>
+  <p>Posted on <%= comment.created_at %></p>
+  <p><%= comment.content %></p>
+<% end %>

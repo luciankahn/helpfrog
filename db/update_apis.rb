@@ -45,3 +45,9 @@ socrata_parse('https://data.cityofnewyork.us/resource/ujsc-un6m.json', ["youth"]
 # collection = api_call('https://data.cityofnewyork.us/resource/pfn4-vjwr.json')
 
 
+
+## Testing (Comments)
+all_places = Place.all
+all_places.each do |place|
+  place.comments << Comment.new(title: TubularFaker.name, content: TubularFaker.lingo)
+end

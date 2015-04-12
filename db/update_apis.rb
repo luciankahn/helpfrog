@@ -6,7 +6,7 @@ def api_call(json_url)
 end
 
 # Handles NYC OpenData queries
-def socrata_parse(json_url, category)
+def socrata_parse(json_url, category_names_array)
   collection = api_call(json_url)
   collection.each do |site|
     name = site["site_name"]
@@ -14,19 +14,22 @@ def socrata_parse(json_url, category)
     phone_number = site["contact_number"]
     latitude = site["location_1"]["latitude"]
     longitude = site["location_1"]["longitude"]
-    Place.create_with(category: category, address: address, phone_number: phone_number, latitude: latitude, longitude: longitude).find_or_create_by(name: name)
+    place = Place.create_with(address: address, phone_number: phone_number, latitude: latitude, longitude: longitude).find_or_create_by(name: name)
+    category_names_array.each do |cat|
+      place.categories << Category.find_or_create_by(name: cat)
+    end
   end
 end
 
-# Family Support Programs for Seniors
-socrata_parse('https://data.cityofnewyork.us/resource/dhs7-q59e.json', :seniors)
-
 # DYCD After School Programs: Housing
-socrata_parse('https://data.cityofnewyork.us/resource/fqcv-e9sg.json', :housing)
+socrata_parse('https://data.cityofnewyork.us/resource/fqcv-e9sg.json', ["housing", "youth"])
+
+# Family Support Programs for Seniors
+socrata_parse('https://data.cityofnewyork.us/resource/dhs7-q59e.json', ["seniors"])
 
 # NEED ERROR HANDLING for missing columns, so the rake doesn't break.
 # After School Programs for Runaway and Homeless Youth
-socrata_parse('https://data.cityofnewyork.us/resource/ujsc-un6m.json', :youth)
+socrata_parse('https://data.cityofnewyork.us/resource/ujsc-un6m.json', ["youth"])
 
 
 

@@ -9,12 +9,13 @@ end
 def socrata_parse(json_url, category_names_array)
   collection = api_call(json_url)
   collection.each do |site|
+    next if site["site_name"].nil? || site["location_1"]["human_address"].nil? || site["contact_number"].nil? || site["location_1"]["latitude"].nil? || site["location_1"]["longitude"].nil?
     name = site["site_name"]
     address = site["location_1"]["human_address"]
     phone_number = site["contact_number"]
     latitude = site["location_1"]["latitude"]
     longitude = site["location_1"]["longitude"]
-    place = Place.create_with(address: address, phone_number: phone_number, latitude: latitude, longitude: longitude).find_or_create_by(name: name)
+    place = Place.create(name: name, address: address, phone_number: phone_number, latitude: latitude, longitude: longitude)
     category_names_array.each do |cat|
       place.categories << Category.find_or_create_by(name: cat)
     end

@@ -74,12 +74,11 @@ collection.each do |site|
   name = site["facility_name"] + " Food Stamp Center"
   address = site["street_address"]
   phone_number = site["phone_number_s_"]
-  # need to geocode latitude and longitude. how?
-  place = Place.create(name: name, address: address, phone_number: phone_number)
-
-  category_names_array.each do |cat|
-    place.categories << Category.find_or_create_by(name: cat)
-  end
+  place = Place.new(name: name, address: address, phone_number: phone_number)
+  place.geocode # get latitude and longitude
+  place.save
+  sleep 0.25 # avoid geocode rate limit
+  place.categories << Category.find_or_create_by(name: "food stamps")
 end
 
 

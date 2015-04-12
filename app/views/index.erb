@@ -8,11 +8,12 @@
       <p><input type="text" size="50" name="address" value="14th St. and 6th Ave., New York, NY"></p></p>
   <p><label>Filter by Category</label></p>
   <p>checkboxes go here</p>
+  <p><input type="submit"></p>
 </form>
 
 <h3>Browse Categories</h3>
 <ul>
 <% Category.all.each do |cat|%>
-  <li><%= cat.name %></li>
+  <li><a href="/categories/<%= cat.id %>"><%= cat.name %></a></li>
 <% end %>
 </ul>

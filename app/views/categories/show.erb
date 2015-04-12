@@ -1,4 +1,5 @@
-<h1>All Places</h1>
+<h1><%= @category.name.upcase %></h1>
+
 <ul>
 <% @places.each do |place| %>
   <li><a href="/places/<%= place.id %>"><%= place.name %></a></li>

@@ -9,7 +9,7 @@ end
 def socrata_parse(json_url, category_names_array)
   collection = api_call(json_url)
   collection.each do |site|
-    next if site["site_name"].nil? || site["location_1"]["human_address"].nil? || site["contact_number"].nil? || site["location_1"]["latitude"].nil? || site["location_1"]["longitude"].nil?
+    next if site["site_name"].nil? || site["location_1"].nil? || site["location_1"]["human_address"].nil? || site["contact_number"].nil? || site["location_1"]["latitude"].nil? || site["location_1"]["longitude"].nil?
     name = site["site_name"]
     address = site["location_1"]["human_address"]
     phone_number = site["contact_number"]
@@ -25,6 +25,10 @@ end
 # DYCD After School Programs: Housing
 # Source Table: https://data.cityofnewyork.us/Social-Services/DYCD-after-school-programs-Housing/fqcv-e9sg
 socrata_parse('https://data.cityofnewyork.us/resource/fqcv-e9sg.json', ["housing", "youth"])
+
+# Senior Center Directory
+# Source Table: https://data.cityofnewyork.us/Social-Services/Senior-Center-Directory/kpt7-myy2
+socrata_parse('https://data.cityofnewyork.us/resource/kpt7-myy2.json', ["seniors"])
 
 # Family Support Programs for Seniors
 # Source Table: https://data.cityofnewyork.us/Social-Services/DYCD-after-school-programs-Family-Support-Programs/dhs7-q59e
@@ -50,7 +54,7 @@ socrata_parse('https://data.cityofnewyork.us/resource/ujsc-un6m.json', ["youth"]
 
 
 ## Testing (Comments)
-all_places = Place.all
-all_places.each do |place|
-  place.comments << Comment.new(title: TubularFaker.name, content: TubularFaker.lingo)
-end
+# all_places = Place.all
+# all_places.each do |place|
+#   place.comments << Comment.new(title: TubularFaker.name, content: TubularFaker.lingo)
+# end

@@ -70,7 +70,7 @@ socrata_parse_nyc('https://data.cityofnewyork.us/resource/ujsc-un6m.json', ["you
 # https://data.cityofnewyork.us/Social-Services/Directory-of-Food-Stamp-Centers/tc6u-8rnp
 collection = api_call('https://data.cityofnewyork.us/resource/tc6u-8rnp.json')
 collection.each do |site|
-  next if
+  next if site["facility_name"].nil? || site["street_address"].nil? || site["phone_number_s_"].nil?
   name = site["facility_name"] + " Food Stamp Center"
   address = site["street_address"]
   phone_number = site["phone_number_s_"]

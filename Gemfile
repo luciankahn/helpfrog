@@ -33,3 +33,5 @@ end
 gem 'geocoder'
 
 gem 'tubular-faker'
+
+gem 'byebug'

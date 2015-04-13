@@ -1,7 +1,7 @@
 <h1><%= @place.name %></h1>
 
 <% @place.categories.each do |cat| %>
-  <p><%= cat.name %></p>
+  <p><a href="/categories/<%= cat.id %>"><%= cat.name %></a></p>
 <% end %>
 
 <p><%= @place.address %></p>

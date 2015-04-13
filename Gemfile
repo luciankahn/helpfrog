@@ -35,3 +35,5 @@ gem 'geocoder'
 gem 'tubular-faker'
 
 gem 'byebug'
+
+gem 'will_paginate', '~> 3.0.5'

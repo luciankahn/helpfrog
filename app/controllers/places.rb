@@ -1,6 +1,6 @@
 # display an alphabetical list of all places (by name), as links to each place's page
 get '/places' do
-  @places = Place.all.sort_by { |place| place.name }
+  @places = Place.paginate(:page => params[:page])
   erb :'/places/show_all'
 end
 

@@ -1,13 +1,12 @@
 ## Create Categories
 
-Category.create(name: "disabilities")
-Category.create(name: "education")
-Category.create(name: "food stamps")
-Category.create(name: "housing")
-Category.create(name: "lgbt")
-Category.create(name: "literacy")
-Category.create(name: "seniors")
-Category.create(name: "youth")
+Category.create(name: "disabilities services")
+Category.create(name: "food stamps / SNAP / EBT")
+Category.create(name: "housing assistance/advocacy")
+Category.create(name: "lgbt services")
+Category.create(name: "literacy programs")
+Category.create(name: "senior services")
+Category.create(name: "youth services")
 
 ## Import lgbt_resources.csv.
 resources = CSV.read('db/lgbt_resources.csv')
@@ -19,5 +18,6 @@ resources.each do |resource|
             )
   place.geocode
   place.save
-  place.categories << Category.find_or_create_by(name: "lgbt_resources")
+  place.categories << Category.find_or_create_by(name: "lgbt services")
 end
+

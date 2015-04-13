@@ -1,4 +1,4 @@
-# Run this rake task once a month to get new resources.
+# Run this rake task periodically to get updates to resources.
 
 def api_call(json_url)
   response = open(json_url)
@@ -42,29 +42,29 @@ end
 
 # Directory of Developmental Disabilities Service Provider Agencies
 # https://data.ny.gov/Human-Services/Directory-of-Developmental-Disabilities-Service-Pr/ieqx-cqyk
-socrata_parse_ny_state('https://data.ny.gov/resource/ieqx-cqyk.json', ["disabilities"])
+socrata_parse_ny_state('https://data.ny.gov/resource/ieqx-cqyk.json', ["disabilities services"])
 
 ######## NYC
 
 # DYCD After School Programs: Reading And Writing Literacy Programs
 # Source Table: https://data.cityofnewyork.us/Education/DYCD-after-school-programs-Reading-And-Writing-Lit/w9cy-nnma
-socrata_parse_nyc('https://data.cityofnewyork.us/resource/w9cy-nnma.json', ["literacy", "education"])
+socrata_parse_nyc('https://data.cityofnewyork.us/resource/w9cy-nnma.json', ["literacy programs"])
 
 # DYCD After School Programs: Housing
 # Source Table: https://data.cityofnewyork.us/Social-Services/DYCD-after-school-programs-Housing/fqcv-e9sg
-socrata_parse_nyc('https://data.cityofnewyork.us/resource/fqcv-e9sg.json', ["housing", "youth"])
+socrata_parse_nyc('https://data.cityofnewyork.us/resource/fqcv-e9sg.json', ["housing assistance/advocacy"])
 
 # Senior Center Directory
 # Source Table: https://data.cityofnewyork.us/Social-Services/Senior-Center-Directory/kpt7-myy2
-socrata_parse_nyc('https://data.cityofnewyork.us/resource/kpt7-myy2.json', ["seniors"])
+socrata_parse_nyc('https://data.cityofnewyork.us/resource/kpt7-myy2.json', ["senior services"])
 
 # Family Support Programs for Seniors
 # Source Table: https://data.cityofnewyork.us/Social-Services/DYCD-after-school-programs-Family-Support-Programs/dhs7-q59e
-socrata_parse_nyc('https://data.cityofnewyork.us/resource/dhs7-q59e.json', ["seniors"])
+socrata_parse_nyc('https://data.cityofnewyork.us/resource/dhs7-q59e.json', ["senior services"])
 
 # After School Programs for Runaway and Homeless Youth
 # Source Table: https://data.cityofnewyork.us/Social-Services/DYCD-after-school-programs-Runaway-And-Homeless-Yo/ujsc-un6m
-socrata_parse_nyc('https://data.cityofnewyork.us/resource/ujsc-un6m.json', ["youth"])
+socrata_parse_nyc('https://data.cityofnewyork.us/resource/ujsc-un6m.json', ["youth services"])
 
 # Food Stamp Centers:
 # https://data.cityofnewyork.us/Social-Services/Directory-of-Food-Stamp-Centers/tc6u-8rnp
@@ -78,7 +78,7 @@ collection.each do |site|
   place.geocode # get latitude and longitude
   place.save
   sleep 0.25 # avoid geocode rate limit
-  place.categories << Category.find_or_create_by(name: "food stamps")
+  place.categories << Category.find_or_create_by(name: "food stamps / SNAP / EBT")
 end
 
 
@@ -88,7 +88,7 @@ end
 
 # Young Adult Borough Centers
 # Different table headers
-# socrata_parse_nyc('https://data.cityofnewyork.us/resource/pfn4-vjwr.json', ["youth", "education"])
+# socrata_parse_nyc('https://data.cityofnewyork.us/resource/pfn4-vjwr.json', ["youth services"])
 
 
 

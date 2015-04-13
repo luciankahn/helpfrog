@@ -1,1 +1,11 @@
-/* CSS declarations go here */
+.container {
+  margin: 20px auto;
+  width: 600px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+}
+
+h1, h2 {
+  text-align: center;
+  text-transform: uppercase;
+}

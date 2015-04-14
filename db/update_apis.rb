@@ -29,6 +29,7 @@ def socrata_parse_nyc(json_url, category_names_array)
   end
 end
 
+# Handles NY State queries
 def socrata_parse_ny_state(json_url, category_names_array)
   collection = api_call(json_url)
   collection.each do |site|
@@ -97,24 +98,21 @@ collection.each do |site|
   place.categories << Category.find_or_create_by(name: "youth services")
 end
 
-
-# socrata_parse_nyc('https://data.cityofnewyork.us/resource/pfn4-vjwr.json', ["youth services"])
-
-
-
-
-### Additional Resources That Need Data Massage:
-
-
-
-
-
-# Directory of Programs List - Mayor's Office
 # Directory of programs for the Young Men's Initiative and the Center for Economic Opportunity.
 # https://data.cityofnewyork.us/Social-Services/Directory-of-Programs-List-Mayor-s-Office/rafb-6xry
+collection = api_call('https://data.cityofnewyork.us/resource/rafb-6xry.json')
+collection.each do |site|
+  next if site["provider"].nil? || site["program_name"].nil? || site["program"].nil? || site["site_address"].nil? || site["borough"].nil?
+  name = "#{site["provider"]} (#{site["program_name"]}), #{site["program"]} Program"
+  address = "#{site["site_address"]}, #{site["borough"]}"
+  phone_number = site["contact_number"]
+  geocode_helper(name, address, phone_number)
+  place.categories << Category.find_or_create_by(name: "economic opportunity")
+end
 
+###################
 
-## Testing (Comments)
+## Testing Comments
 # all_places = Place.all
 # all_places.each do |place|
 #   place.comments << Comment.new(title: TubularFaker.name, content: TubularFaker.lingo)

@@ -1,6 +1,7 @@
 ## Create Categories
 
 Category.create(name: "disabilities services")
+Category.create(name: "economic opportunity")
 Category.create(name: "food stamps / SNAP / EBT")
 Category.create(name: "housing assistance/advocacy")
 Category.create(name: "lgbt services")

@@ -5,8 +5,10 @@
 <form method="POST" action="#">
   <p><label>Starting Address:</label>
       <p><input type="text" size="50" name="address" value="14th St. and 6th Ave., New York, NY"></p></p>
-  <p><label>Filter by Category</label></p>
-  <p>checkboxes go here</p>
+  <p><label>Filter by Categories:</label></p>
+  <% Category.all.each do |cat| %>
+    <p><input type="checkbox" name="filter" value="<%= cat.name %>"> <%= cat.name %></p>
+  <% end %>
   <p><input type="submit"></p>
 </form>
 
@@ -17,7 +19,7 @@
 <% end %>
 </ul>
 
-<h5>Data Sources:</h5>
+<h3>Data Sources:</h3>
 <ul>
   <li><a href="https://data.cityofnewyork.us/" target="_blank">NYC OpenData</a></li>
   <li><a href="https://data.ny.gov/" target="_blank">New York State OpenData</a></li>

@@ -5,6 +5,13 @@ def api_call(json_url)
   JSON.parse(response.read)
 end
 
+def geocode_helper(name, address, phone_number)
+  place = Place.new(name: name, address: address, phone_number: phone_number)
+  place.geocode
+  place.save
+  sleep 0.25 # avoid geocode rate limit
+end
+
 # Handles NYC OpenData queries
 def socrata_parse_nyc(json_url, category_names_array)
   collection = api_call(json_url)
@@ -74,22 +81,37 @@ collection.each do |site|
   name = site["facility_name"] + " Food Stamp Center"
   address = site["street_address"]
   phone_number = site["phone_number_s_"]
-  place = Place.new(name: name, address: address, phone_number: phone_number)
-  place.geocode # get latitude and longitude
-  place.save
-  sleep 0.25 # avoid geocode rate limit
+  geocode_helper(name, address, phone_number)
   place.categories << Category.find_or_create_by(name: "food stamps / SNAP / EBT")
 end
+
+# Young Adult Borough Centers
+# https://data.cityofnewyork.us/Social-Services/Young-Adult-Borough-Centers-2012-2013/pfn4-vjwr
+collection = api_call('https://data.cityofnewyork.us/resource/pfn4-vjwr.json')
+collection.each do |site|
+  next if site["location"].nil? || site["location_1"].nil? || site["borough"].nil?
+  name = site["location"]
+  address = "#{site["location_1"]}, #{site["borough"]}"
+  phone_number = site["phone_number"]
+  geocode_helper(name, address, phone_number)
+  place.categories << Category.find_or_create_by(name: "youth services")
+end
+
+
+# socrata_parse_nyc('https://data.cityofnewyork.us/resource/pfn4-vjwr.json', ["youth services"])
+
+
 
 
 ### Additional Resources That Need Data Massage:
 
 
 
-# Young Adult Borough Centers
-# Different table headers
-# socrata_parse_nyc('https://data.cityofnewyork.us/resource/pfn4-vjwr.json', ["youth services"])
 
+
+# Directory of Programs List - Mayor's Office
+# Directory of programs for the Young Men's Initiative and the Center for Economic Opportunity.
+# https://data.cityofnewyork.us/Social-Services/Directory-of-Programs-List-Mayor-s-Office/rafb-6xry
 
 
 ## Testing (Comments)

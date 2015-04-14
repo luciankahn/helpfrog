@@ -10,6 +10,7 @@ def geocode_helper(name, address, phone_number)
   place.geocode
   place.save
   sleep 0.25 # avoid geocode rate limit
+  place
 end
 
 # Handles NYC OpenData queries
@@ -82,7 +83,7 @@ collection.each do |site|
   name = site["facility_name"] + " Food Stamp Center"
   address = site["street_address"]
   phone_number = site["phone_number_s_"]
-  geocode_helper(name, address, phone_number)
+  place = geocode_helper(name, address, phone_number)
   place.categories << Category.find_or_create_by(name: "food stamps / SNAP / EBT")
 end
 
@@ -94,7 +95,7 @@ collection.each do |site|
   name = site["location"]
   address = "#{site["location_1"]}, #{site["borough"]}"
   phone_number = site["phone_number"]
-  geocode_helper(name, address, phone_number)
+  place = geocode_helper(name, address, phone_number)
   place.categories << Category.find_or_create_by(name: "youth services")
 end
 
@@ -106,7 +107,7 @@ collection.each do |site|
   name = "#{site["provider"]} (#{site["program_name"]}), #{site["program"]} Program"
   address = "#{site["site_address"]}, #{site["borough"]}"
   phone_number = site["contact_number"]
-  geocode_helper(name, address, phone_number)
+  place = geocode_helper(name, address, phone_number)
   place.categories << Category.find_or_create_by(name: "economic opportunity")
 end
 

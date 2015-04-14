@@ -1,2 +1,2 @@
 # helpfrog
-Find and rate nearby social services in NYC.
+Find, map, and rate nearby social services in NYC.

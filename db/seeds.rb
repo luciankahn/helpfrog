@@ -4,7 +4,7 @@ Category.create(name: "disabilities services")
 Category.create(name: "economic opportunity")
 Category.create(name: "food stamps / SNAP / EBT")
 Category.create(name: "housing assistance/advocacy")
-Category.create(name: "lgbt services")
+Category.create(name: "LGBT services")
 Category.create(name: "literacy programs")
 Category.create(name: "senior services")
 Category.create(name: "youth services")
@@ -19,6 +19,6 @@ resources.each do |resource|
             )
   place.geocode
   place.save
-  place.categories << Category.find_or_create_by(name: "lgbt services")
+  place.categories << Category.find_or_create_by(name: "LGBT services")
 end
 

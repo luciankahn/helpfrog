@@ -8,7 +8,7 @@ $(document).ready(function() {
       data: $form.serialize()
     }).done(function (response) {
       var $newComment = $(response);
-      $(#comments-container).prepend($newComment);
+      $('#comments-container').prepend($newComment);
     }).fail(function (response) {
 
     })

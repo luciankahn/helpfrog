@@ -4,9 +4,10 @@ end
 
 post '/places/:id/comments' do |id|
   place = Place.find(id)
-  place.comments << Comment.create(params[:comment])
+  comment = Comment.create(params[:comment])
+  place.comments << comment
   if request.xhr?
-    erb :'places/_comment', locals: {comment: @comment}
+    erb :'places/_comment', locals: {comment: comment}
   else
     redirect "/places/#{id}"
   end

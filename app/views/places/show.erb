@@ -10,8 +10,12 @@
 
 <p>Map Goes Here.</p>
 
+<h2>Comment on this Resource:</h2>
+
+<%= erb :'places/_new-comment' %>
+
 <h2>User Comments:</h2>
-<% @place.comments.each do |comment| %>
+<% @place.comments.reverse_each do |comment| %>
   <h3><%= comment.title %></h3>
   <p>Posted on <%= comment.created_at %></p>
   <p><%= comment.content %></p>

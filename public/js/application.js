@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('#submit-comment').on('click', function(event) {
+  $('#new-comment-form').on('submit', function(event) {
     event.preventDefault();
     var $form = $(event.target);
     $.ajax({

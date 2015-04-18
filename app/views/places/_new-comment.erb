@@ -1,13 +1,13 @@
-<form method="POST" action="/places/:id/comments">
-    <p><input type="text" name="comment[:title]" value="Comment Title"></p>
-    <p><textarea cols="50" rows="5" name="comment[:content]">Write your comment here.</textarea></p>
+<form method="POST" action="/places/<%= @place.id %>/comments">
+    <p><input type="text" name="comment[title]" value="Comment Title"></p>
+    <p><textarea cols="50" rows="5" name="comment[content]">Write your comment here.</textarea></p>
   <p><label>Rating</label>
     <select>
-      <option name="comment[:rating]" value="5">Very Good</option>
-      <option name="comment[:rating]" value="4">Good</option>
-      <option name="comment[:rating]" value="3">Okay</option>
-      <option name="comment[:rating]" value="2">Bad</option>
-      <option name="comment[:rating]" value="1">Very Bad</option>
+      <option name="comment[rating]" value="5">Very Good</option>
+      <option name="comment[rating]" value="4">Good</option>
+      <option name="comment[rating]" value="3">Okay</option>
+      <option name="comment[rating]" value="2">Bad</option>
+      <option name="comment[rating]" value="1">Very Bad</option>
     </select></p>
   <p><input type="submit"></p>
 </form>

@@ -17,8 +17,6 @@
 <h2>User Comments:</h2>
 <div class="comments-container">
   <% @place.comments.reverse_each do |comment| %>
-    <h3><%= comment.title %></h3>
-    <p>Posted on <%= comment.created_at %></p>
-    <p><%= comment.content %></p>
+    <%= erb :'places/_comment'%>
   <% end %>
 </div>

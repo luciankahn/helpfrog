@@ -18,6 +18,7 @@ resources.each do |resource|
             description: resource[3].slice(0, 255)
             )
   place.geocode
+  sleep 0.25 # avoid geocode rate limit
   place.save
   place.categories << Category.find_or_create_by(name: "LGBT services")
 end

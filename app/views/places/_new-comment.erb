@@ -1,6 +1,6 @@
 <form id="new-comment-form" method="POST" action="/places/<%= @place.id %>/comments">
     <p><input type="text" name="comment[title]" value="Comment Title"></p>
-    <p><textarea cols="50" rows="5" name="comment[content]">Write your comment here.</textarea></p>
+    <p><textarea cols="40" rows="5" name="comment[content]">Write your comment here.</textarea></p>
   <p><label>Rating</label>
     <select>
       <option name="comment[rating]" value="5">Very Good</option>

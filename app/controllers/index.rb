@@ -8,11 +8,11 @@ post '/' do
   else
     @address = params['address']
     if params['filter'] == ""
-      @filter = Category.all.name # This isn't getting assigned.
+      filter_categories = Category.all.name
     else
-      @filter = params['filter']  # This isn't getting assigned properly from index.erb.
+      filter_categories = params['filter']
     end
-    puts "Filter: #{params['filter']}"
+    @places = Place.joins(:categories).near(@address).where("categories.name IN (?)", filter_categories)
     erb :'/results'
   end
 end

@@ -4,7 +4,7 @@
 
 <h3>Places:</h3>
 <ol>
-  <% Place.near(@address).each do |place| %>
+  <% @places.each do |place| %>
     <li><a href="/places/<%= place.id %>"><%= place.name %></a></li>
   <% end %>
 </ol>

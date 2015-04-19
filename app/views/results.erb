@@ -5,6 +5,6 @@
 <h3>Places:</h3>
 <ol>
   <% Place.near(@address).each do |place| %>
-    <li><%= place.name %></li>
+    <li><a href="/places/<%= place.id %>"><%= place.name %></a></li>
   <% end %>
 </ol>

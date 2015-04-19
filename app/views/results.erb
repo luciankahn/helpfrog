@@ -2,9 +2,12 @@
 
 <h3>Map Goes Here</h3>
 
-<h3>Places:</h3>
+<h3>30 Nearest Places:</h3>
 <ol>
   <% @places.each do |place| %>
-    <li><a href="/places/<%= place.id %>"><%= place.name %></a></li>
+    <li><a href="/places/<%= place.id %>"><%= place.name %></a> <p>( <% place.categories.each do |cat| %>
+          <a href="/categories/<%= cat.id %>"><%= cat.name %></a>
+        <% end %>
+      )</p></li>
   <% end %>
 </ol>

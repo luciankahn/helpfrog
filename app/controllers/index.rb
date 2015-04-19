@@ -12,7 +12,7 @@ post '/' do
     else
       filter_categories = params['filter']
     end
-    @places = Place.joins(:categories).near(@address).where("categories.name IN (?)", filter_categories)
+    @places = Place.joins(:categories).near(@address).where("categories.name IN (?)", filter_categories).limit(30)
     erb :'/results'
   end
 end

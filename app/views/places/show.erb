@@ -15,7 +15,7 @@
 <%= erb :'places/_new-comment' %>
 
 <h2>User Comments:</h2>
-<div class="comments-container">
+<div id="comments-container">
   <% @place.comments.reverse_each do |comment| %>
     <%= erb :'places/_comment', locals: {comment: comment}%>
   <% end %>

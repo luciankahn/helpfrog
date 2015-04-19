@@ -6,11 +6,11 @@ $(document).ready(function() {
       url: $form.attr('action'),
       type: $form.attr('method'),
       data: $form.serialize()
-    }).done(function (response) {
+    }).done(function(response) {
       var $newComment = $(response);
       $('#comments-container').prepend($newComment);
-    }).fail(function (response) {
-
+    }).fail(function(response) {
+      console.log("Fail.")
     })
   });
 });

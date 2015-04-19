@@ -1,27 +1,39 @@
-<h2>NYC Social Service Mapper</h2>
+<header>
+  <h2>NYC Social Service Mapper</h2>
 
-<h3>Find Resources Near You</h3>
+  <h3>Find Resources Near You</h3>
+</header>
 
-<form method="POST" action="/">
-  <p><label>Starting Address or Intersection:</label>
-      <p><input type="text" size="50" name="address" value="14th St. and 6th Ave., New York, NY"></p></p>
-  <p><label>Filter by Categories:</label></p>
-  <% Category.all.each do |cat| %>
-    <p><input type="checkbox" name="filter[]" value="<%= cat.name %>"> <%= cat.name %></p>
-  <% end %>
-  <p><input type="submit"></p>
-</form>
+<section>
+  <form method="POST" action="/">
+    <p><label>Starting Address or Intersection:</label>
+        <p><input type="text" size="40" name="address" value="14th St. and 6th Ave., New York, NY"></p></p>
+    <p><label>Please select 1 or more categories:</label></p>
+    <% Category.all.each do |cat| %>
+      <p><input type="checkbox" name="filter[]" value="<%= cat.name %>"> <%= cat.name %></p>
+    <% end %>
+    <p><input type="submit" value="Search"></p>
+  </form>
+</section>
 
-<h3>Browse Categories</h3>
-<ul>
-<% Category.all.each do |cat|%>
-  <li><a href="/categories/<%= cat.id %>"><%= cat.name %></a></li>
-<% end %>
-</ul>
+<section>
+  <div class="links">
+    <div class="links-section">
+      <h3>Browse Categories</h3>
+      <ul>
+      <% Category.all.each do |cat|%>
+        <li><a href="/categories/<%= cat.id %>"><%= cat.name %></a></li>
+      <% end %>
+      </ul>
+    </div>
 
-<h3>Data Sources:</h3>
-<ul>
-  <li><a href="https://data.cityofnewyork.us/" target="_blank">NYC OpenData</a></li>
-  <li><a href="https://data.ny.gov/" target="_blank">New York State OpenData</a></li>
-  <li><a href="http://callen-lorde.org/graphics/2012/03/NYC-Metro-TGNC-Resources_Updated-9_12_2013.pdf" target="_blank">NYC-Metro Area Transgender and Gender Non-Conforming (TGNC) Community Resources</a></li>
-</ul>
+    <div class="links-section">
+      <h3>Data Sources</h3>
+      <ul>
+        <li><a href="https://data.cityofnewyork.us/" target="_blank">NYC OpenData</a></li>
+        <li><a href="https://data.ny.gov/" target="_blank">New York State OpenData</a></li>
+        <li><a href="http://callen-lorde.org/graphics/2012/03/NYC-Metro-TGNC-Resources_Updated-9_12_2013.pdf" target="_blank">NYC-Metro Area Transgender and Gender Non-Conforming (TGNC) Community Resources</a></li>
+      </ul>
+    </div>
+  </div>
+</section>

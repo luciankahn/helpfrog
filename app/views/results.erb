@@ -5,9 +5,8 @@
 <h3>30 Nearest Places:</h3>
 <ol>
   <% @places.each do |place| %>
-    <li><a href="/places/<%= place.id %>"><%= place.name %></a> <p>( <% place.categories.each do |cat| %>
+    <li><a href="/places/<%= place.id %>"><%= place.name %></a> <p>(<% place.categories.each do |cat| %>
           <a href="/categories/<%= cat.id %>"><%= cat.name %></a>
-        <% end %>
-      )</p></li>
+        <% end %>)</p></li>
   <% end %>
 </ol>

@@ -1,14 +1,30 @@
 var map;
 function initialize() {
-  console.log("I am in initialize.")
+
+  // CREATE MAP
+
+  var latLng = new google.maps.LatLng(-34.397, 150.644);
   var mapOptions = {
-    zoom: 8,
-    center: new google.maps.LatLng(-34.397, 150.644)
+    zoom: 12,
+    center: latLng
   };
-  map = new google.maps.Map(document.getElementById('map-canvas'),
+
+  var map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
-  console.log(map);
+
+  // ADD A MARKER
+
+  var marker = new google.maps.Marker({
+    position: latLng,
+    map: map,
+    title: "Name of Resource"
+  })
 }
 
-google.maps.event.addDomListener(window, 'load', initialize);
 
+
+
+
+// Call initialize upon load of window.
+
+google.maps.event.addDomListener(window, 'load', initialize);

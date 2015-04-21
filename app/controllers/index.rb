@@ -13,6 +13,12 @@ post '/' do
       filter_categories = params['filter']
     end
     @places = Place.joins(:categories).near(@address).where("categories.name IN (?)", filter_categories).limit(30)
+
+    # I need to send
+    # @places.each "place.latitude, place.longitude"
+    # to google_maps.js, to construct markers to put on the google map.
+    # Does this entire route need to be an AJAX call instead? How?
+
     erb :'/results'
   end
 end

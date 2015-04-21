@@ -1,7 +1,20 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
 body {
+  height: 100%;
+  width: 100%;
   background: #00943F;
   font-family: "Helvetica";
   font-size: 20px;
+}
+
+#map-canvas {
+  height: 30em;
+  width: 50em;
+  margin: 0 auto;
 }
 
 .container {
@@ -52,4 +65,5 @@ ul li {
   float: left;
   padding-left: 3.5%;
 }
+
 

@@ -14,10 +14,16 @@ function initialize() {
 
   // ADD A MARKER
 
-  var marker = new google.maps.Marker({
+  var marker1 = new google.maps.Marker({
     position: latLng,
     map: map,
     title: "Name of Resource"
+  })
+
+  var marker2 = new google.maps.Marker({
+    position: new google.maps.LatLng(-34.497, 150.644),
+    map: map,
+    title: "Name of Other Resource"
   })
 }
 

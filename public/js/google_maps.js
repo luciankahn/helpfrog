@@ -3,7 +3,7 @@ function initialize() {
 
   // CREATE MAP
 
-  var latLng = new google.maps.LatLng(latitude1, longitude1);
+  var latLng = new google.maps.LatLng(-34.497, 150.644);
   var mapOptions = {
     zoom: 13,
     center: latLng
@@ -15,7 +15,7 @@ function initialize() {
   // ADD A MARKER
 
   var marker1 = new google.maps.Marker({
-    position: new google.maps.LatLng(latitude1, longitude1),
+    position: new google.maps.LatLng(-34.495, 150.644),
     map: map,
     title: "Name of Resource"
   })
@@ -24,6 +24,17 @@ function initialize() {
     position: new google.maps.LatLng(-34.497, 150.644),
     map: map,
     title: "Name of Other Resource"
+  })
+
+  $.ajax({
+    url: '/',
+    type: 'get',
+    success: function(response){
+      console.log("success", response)
+    },
+    error: function(response){
+      console.log("error", response)
+    }
   })
 }
 

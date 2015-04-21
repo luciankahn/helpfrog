@@ -13,6 +13,13 @@ post '/' do
       filter_categories = params['filter']
     end
     @places = Place.joins(:categories).near(@address).where("categories.name IN (?)", filter_categories).limit(30)
+    p '*' * 30
+    all_the_places = []
+    @places.each do |place|
+      all_the_places << [place.latitude, place.longitude]
+    end
+    p all_the_places.to_json
+    p '*' * 30
 
     # I need to send
     # @places.each "place.latitude, place.longitude"

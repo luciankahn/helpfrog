@@ -3,9 +3,9 @@ function initialize() {
 
   // CREATE MAP
 
-  var latLng = new google.maps.LatLng(-34.397, 150.644);
+  var latLng = new google.maps.LatLng(latitude1, longitude1);
   var mapOptions = {
-    zoom: 10,
+    zoom: 13,
     center: latLng
   };
 
@@ -15,7 +15,7 @@ function initialize() {
   // ADD A MARKER
 
   var marker1 = new google.maps.Marker({
-    position: latLng,
+    position: new google.maps.LatLng(latitude1, longitude1),
     map: map,
     title: "Name of Resource"
   })

@@ -1,5 +1,9 @@
 <h2>Resources Near <%= @address %></h2>
+<script type="text/javascript">
+  var latitude1 = parseFloat('<%= @places.first.latitude %>');
+  var longitude1 = parseFloat('<%= @places.first.longitude %>');
 
+</script>
 <div id="map-canvas"></div>
 
 <h3>Nearest Places:</h3>

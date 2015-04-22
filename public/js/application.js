@@ -20,7 +20,7 @@ $(document).ready(function() {
       url: '/results',
       type: 'GET'
     }).done(function(response) {
-      console.log(response);
+      console.log("Success.");
     }).fail(function(response) {
       console.log("Fail.")
     })

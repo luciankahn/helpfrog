@@ -26,16 +26,6 @@ function initialize() {
     title: "Name of Other Resource"
   })
 
-  $.ajax({
-    url: '/',
-    type: 'get',
-    success: function(response){
-      console.log("success", response)
-    },
-    error: function(response){
-      console.log("error", response)
-    }
-  })
 }
 
 

@@ -1,0 +1,14 @@
+<form id="edit-comment-form" method="POST" action="/comments/<%= comment.id %>">
+    <input type="hidden" name="_method" value="PUT">
+    <p><input type="text" name="comment[title]" value="<%= comment.title %>"></p>
+    <p><textarea cols="40" rows="5" name="comment[content]"><%= comment.content %></textarea></p>
+  <p><label>Rating</label>
+    <select>
+      <option name="comment[rating]" value="5">Very Good</option>
+      <option name="comment[rating]" value="4">Good</option>
+      <option name="comment[rating]" value="3">Okay</option>
+      <option name="comment[rating]" value="2">Bad</option>
+      <option name="comment[rating]" value="1">Very Bad</option>
+    </select></p>
+  <p><input id="submit-comment-edit" type="submit"></p>
+</form>

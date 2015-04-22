@@ -14,6 +14,21 @@ $(document).ready(function() {
     })
   });
 
+  $('#edit-comment').on('click', function(event) {
+    event.preventDefault();
+    $.ajax({
+      url: 'comments/:comment_id', // can I pass this id in through the form in a hidden field?
+      type: "PUT"
+    }).done(function(response){
+      var $editedComment = $(response);
+      $('#comments-container').prepend($editedComment);
+    }).fail(function(response){
+      console.log("Fail.")
+    })
+  })
+
+
+
   // ajax call if the current page is the results page
   if ($('#results-page').length) {
     $.ajax({

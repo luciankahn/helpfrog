@@ -12,3 +12,16 @@ post '/places/:id/comments' do |id|
     redirect "/places/#{id}"
   end
 end
+
+# edit a comment
+put 'comments/:comment_id' do |comment_id|
+  comment = Comment.find(id)
+  comment.update(params[:comment])
+  if response.xhr?
+    erb :'places/_edit_comment', layout: false, locals: {comment: comment}
+  else
+    # provide functionality for non-JS users
+  end
+end
+
+# delete a comment

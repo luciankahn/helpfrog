@@ -13,19 +13,14 @@ post '/' do
       filter_categories = params['filter']
     end
     @places = Place.joins(:categories).near(@address).where("categories.name IN (?)", filter_categories).limit(30)
-    p '*' * 30
-    all_the_places = []
+    @lat_longs = []
     @places.each do |place|
-      all_the_places << [place.latitude, place.longitude]
+      @lat_longs << [place.latitude, place.longitude]
     end
-    p all_the_places.to_json
-    p '*' * 30
-
-    # I need to send
-    # @places.each "place.latitude, place.longitude"
-    # to google_maps.js, to construct markers to put on the google map.
-    # Does this entire route need to be an AJAX call instead? How?
-
+    p @lat_longs.to_json
     erb :'/results'
+    # google_maps.js needs to receive the @lat_longs json file in order to iterate through it and construct marker objects for the map on results.erb.
+    # However, the list that appears below the map in results.erb needs @places in order to render. And results.erb needs to render as a result of this route.
+    # How do I pass @lat_longs.to_json to google_maps.js AND @places to results.erb, AND render results.erb, from this route?
   end
 end

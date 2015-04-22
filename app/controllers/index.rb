@@ -2,7 +2,7 @@ get '/' do
   erb :'index'
 end
 
-post '/' do
+get '/results' do
   if params['address'].nil?
     redirect '/'
   else

@@ -13,13 +13,25 @@ def geocode_helper(name, address, phone_number)
   place
 end
 
+def format_address(json_address)
+  json_address.delete!(':')
+  json_address.delete!("\"")
+  json_address.delete!("{")
+  json_address.delete!("}")
+  json_address.gsub!(/address/, "")
+  json_address.gsub!(/city/," ")
+  json_address.gsub!(/state/, " ")
+  json_address.gsub!(/zip/, " ")
+end
+
 # Handles NYC OpenData queries
 def socrata_parse_nyc(json_url, category_names_array)
   collection = api_call(json_url)
   collection.each do |site|
     next if site["site_name"].nil? || site["location_1"].nil? || site["location_1"]["human_address"].nil? || site["contact_number"].nil? || site["location_1"]["latitude"].nil? || site["location_1"]["longitude"].nil?
     name = site["site_name"]
-    address = site["location_1"]["human_address"]
+    json_address = site["location_1"]["human_address"]
+    address = format_address(json_address)
     phone_number = site["contact_number"]
     latitude = site["location_1"]["latitude"]
     longitude = site["location_1"]["longitude"]

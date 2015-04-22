@@ -16,7 +16,7 @@ get '/results' do
   if request.xhr?
     @lat_longs = []
     @places.each do |place|
-      @lat_longs << [place.latitude, place.longitude]
+      @lat_longs << [place.latitude, place.longitude, place.name]
     end
     @lat_longs.to_json
   else

@@ -42,7 +42,7 @@ $(document).ready(function() {
           new google.maps.Marker({
             position: new google.maps.LatLng(places[i][0], places[i][1]),
             map: map,
-            title: "Fix This Later"
+            title: places[i][2]
           })
         }
       }

@@ -14,5 +14,17 @@ $(document).ready(function() {
     })
   });
 
+  $('#search-form').on('submit', function(event) {
+    event.preventDefault();
+    var $form = $(event.target);
+    $.ajax({
+      url: $form.attr('action'),
+      type: $form.attr('method')
+    }).done(function(response) {
+      console.log("Succeed.")
+    }).fail(function(response) {
+      console.log("Fail.")
+    })
+  });
 
 });

@@ -14,20 +14,19 @@ $(document).ready(function() {
     })
   });
 
-  $('#edit-comment').on('click', function(event) {
+  // not yet functional
+  $('.edit-comment').on('click', function(event) {
     event.preventDefault();
     $.ajax({
       url: 'comments/:comment_id', // can I pass this id in through the form in a hidden field?
       type: "PUT"
     }).done(function(response){
       var $editedComment = $(response);
-      $('#comments-container').prepend($editedComment);
+      // how do I use JS to replace the old comment with the new comment?
     }).fail(function(response){
       console.log("Fail.")
     })
   })
-
-
 
   // ajax call if the current page is the results page
   if ($('#results-page').length) {

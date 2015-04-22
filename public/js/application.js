@@ -20,11 +20,7 @@ $(document).ready(function() {
       url: '/results',
       type: 'GET'
     }).done(function(response) {
-      // @lat_longs.each do |lat_long|
-      //   console.log(lat_long[0]);
-      //   console.log(lat_long[1]);
-      // end
-      console.log("Success.")
+      console.log(response);
     }).fail(function(response) {
       console.log("Fail.")
     })

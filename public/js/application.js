@@ -21,7 +21,19 @@ $(document).ready(function() {
       type: 'GET',
       dataType: 'json'
     }).done(function(response) {
-      console.log(response);
+      // create a new google map, centered on the first set of lat_longs
+
+      // for each array in the response, drop a marker using the latitude and longitude.
+      var places = response;
+      console.log(map); // out of scope
+      for (var i=0; i<places.length; i++) {
+        console.log(places[i][0] + "," + places[i][1]);
+        new google.maps.Marker({
+          position: new google.maps.LatLng(places[i][0], places[i][1]),
+          map: map,
+          title: "Fix This Later"
+        })
+      }
     }).fail(function(response) {
       console.log("Fail.")
     })

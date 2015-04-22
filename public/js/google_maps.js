@@ -28,10 +28,6 @@ function initialize() {
 
 }
 
-
-
-
-
 // Call initialize upon load of window.
 
 google.maps.event.addDomListener(window, 'load', initialize);

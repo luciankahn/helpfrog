@@ -16,12 +16,12 @@ $(document).ready(function() {
 
   // ajax call if the current page is the results page
   if ($('#results-page').length) {
-    console.log("I'm in the if.")
     $.ajax({
       url: '/results',
-      type: 'GET'
+      type: 'GET',
+      dataType: 'json'
     }).done(function(response) {
-      console.log("Success.");
+      console.log(response);
     }).fail(function(response) {
       console.log("Fail.")
     })

@@ -14,7 +14,10 @@ $(document).ready(function() {
     })
   });
 
-  $('.edit-comment').on('click', function(event) {
+  // read jquery .on documentation to fully understand why
+  // we're doing this for events on a class that might not be present
+  // when the page is loaded.
+  $('.container').on('click', '.edit-comment', function(event) {
     event.preventDefault();
     $('.edit-posted-comment').toggle();
   })

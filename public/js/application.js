@@ -17,6 +17,10 @@ $(document).ready(function() {
   // not yet functional
   $('.edit-comment').on('click', function(event) {
     event.preventDefault();
+
+  })
+
+  $('.edit-comment-form').on('submit', function(event) {
     $.ajax({
       url: 'comments/:comment_id', // can I pass this id in through the form in a hidden field?
       type: "PUT"
@@ -27,7 +31,10 @@ $(document).ready(function() {
     }).fail(function(response){
       console.log("Fail.")
     })
+
+
   })
+
 
   // ajax call if the current page is the results page
   if ($('#results-page').length) {

@@ -17,7 +17,7 @@ $(document).ready(function() {
   // ajax call if the current page is the results page
   if ($('#results-page').length) {
     $.ajax({
-      url: '/results',
+      url: document.location.href, // gets the url of the current page, including the query string
       type: 'GET',
       dataType: 'json'
     }).done(function(response) {

@@ -16,6 +16,7 @@ $(document).ready(function() {
 
   // ajax call if the current page is the results page
   if ($('#results-page').length) {
+    console.log("I'm in the if.")
     $.ajax({
       url: '/results',
       type: 'GET'

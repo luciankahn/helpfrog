@@ -14,20 +14,20 @@ $(document).ready(function() {
     })
   });
 
-  $('#search-form').on('submit', function(event) {
-    event.preventDefault();
-    var $form = $(event.target);
+  // ajax call if the current page is the results page
+  if ($('#results-page').length) {
     $.ajax({
-      url: $form.attr('action'),
-      type: $form.attr('method')
+      url: '/results',
+      type: 'GET'
     }).done(function(response) {
-      @lat_longs.each do |lat_long|
-        console.log(lat_long[0]);
-        console.log(lat_long[1]);
-      end
+      // @lat_longs.each do |lat_long|
+      //   console.log(lat_long[0]);
+      //   console.log(lat_long[1]);
+      // end
+      console.log("Success.")
     }).fail(function(response) {
       console.log("Fail.")
     })
-  });
+  }
 
 });

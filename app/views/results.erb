@@ -1,12 +1,14 @@
-<h2>Resources Near <%= @address %></h2>
+<section id="#results-page">
+  <h2>Resources Near <%= @address %></h2>
 
-<div id="map-canvas"></div>
+  <div id="map-canvas"></div>
 
-<h3>Nearest Places:</h3>
-<ol>
-  <% @places.each do |place| %>
-    <li><a href="/places/<%= place.id %>"><%= place.name %></a> <p>Category: <% place.categories.each do |cat| %>
-          <a href="/categories/<%= cat.id %>"><%= cat.name %></a>
-        <% end %></p></li>
-  <% end %>
-</ol>
+  <h3>Nearest Places:</h3>
+  <ol>
+    <% @places.each do |place| %>
+      <li><a href="/places/<%= place.id %>"><%= place.name %></a> <p>Category: <% place.categories.each do |cat| %>
+            <a href="/categories/<%= cat.id %>"><%= cat.name %></a>
+          <% end %></p></li>
+    <% end %>
+  </ol>
+</section>

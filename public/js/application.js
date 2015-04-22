@@ -21,18 +21,19 @@ $(document).ready(function() {
 
   $('.edit-comment-form').on('submit', function(event) {
     event.preventDefault();
-    var target = $(event.target);
-    console.log(target);
-    // $.ajax({
-    //   url: 'comments/:comment_id', // can I pass this id in through the form in a hidden field?
-    //   type: "PUT"
-    // }).done(function(response){
-    //   var $editedComment = $(response);
-    //   // how do I use JS to replace the old comment with the new comment?
-    //   // I don't want to accidentally replace ALL the comments.
-    // }).fail(function(response){
-    //   console.log("Fail.")
-    // })
+    var $target = $(event.target);
+    var url = $target.attr('action')
+    $.ajax({
+      url: url,
+      type: "PUT",
+      data: $target.serialize()
+    }).done(function(response){
+      console.log(response);
+      // var $editedComment = $(response);
+
+    }).fail(function(response){
+      console.log("Fail.")
+    })
 
 
   })

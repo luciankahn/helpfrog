@@ -23,6 +23,7 @@ $(document).ready(function() {
     }).done(function(response){
       var $editedComment = $(response);
       // how do I use JS to replace the old comment with the new comment?
+      // I don't want to accidentally replace ALL the comments.
     }).fail(function(response){
       console.log("Fail.")
     })

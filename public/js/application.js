@@ -16,27 +16,29 @@ $(document).ready(function() {
 
   // read jquery .on documentation to fully understand why
   // we're doing this for events on a class that might not be present
-  // when the page is loaded.
+  // when the page is loaded. This works.
   $('.container').on('click', '.edit-comment', function(event) {
     event.preventDefault();
     $('.edit-posted-comment').toggle();
   })
 
+  // Broken.
   $('.edit-comment-form').on('submit', function(event) {
     event.preventDefault();
     var $target = $(event.target);
     var url = $target.attr('action')
-    $.ajax({
-      url: url,
-      type: "PUT",
-      data: $target.serialize()
-    }).done(function(response){
-      console.log(response);
-      // var $editedComment = $(response);
+    console.log(url);
+    // $.ajax({
+    //   url: url,
+    //   type: "PUT",
+    //   data: $target.serialize()
+    // }).done(function(response){
+    //   console.log(response);
+    //   // var $editedComment = $(response);
 
-    }).fail(function(response){
-      console.log("Fail.")
-    })
+    // }).fail(function(response){
+    //   console.log("Fail.")
+    // })
 
 
   })

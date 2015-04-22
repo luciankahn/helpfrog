@@ -15,7 +15,7 @@ get '/results' do
     @places.each do |place|
       @lat_longs << [place.latitude, place.longitude]
     end
-    @lat_longs.to_json
+    @lat_longs = @lat_longs.to_json
   else
     erb :'/results'
   end

@@ -21,7 +21,10 @@ $(document).ready(function() {
       url: $form.attr('action'),
       type: $form.attr('method')
     }).done(function(response) {
-      console.log("Succeed.")
+      @lat_longs.each do |lat_long|
+        console.log(lat_long[0]);
+        console.log(lat_long[1]);
+      end
     }).fail(function(response) {
       console.log("Fail.")
     })

@@ -17,20 +17,22 @@ $(document).ready(function() {
   $('.edit-comment').on('click', function(event) {
     event.preventDefault();
     $('.edit-posted-comment').toggle();
-
   })
 
   $('.edit-comment-form').on('submit', function(event) {
-    $.ajax({
-      url: 'comments/:comment_id', // can I pass this id in through the form in a hidden field?
-      type: "PUT"
-    }).done(function(response){
-      var $editedComment = $(response);
-      // how do I use JS to replace the old comment with the new comment?
-      // I don't want to accidentally replace ALL the comments.
-    }).fail(function(response){
-      console.log("Fail.")
-    })
+    event.preventDefault();
+    var target = $(event.target);
+    console.log(target);
+    // $.ajax({
+    //   url: 'comments/:comment_id', // can I pass this id in through the form in a hidden field?
+    //   type: "PUT"
+    // }).done(function(response){
+    //   var $editedComment = $(response);
+    //   // how do I use JS to replace the old comment with the new comment?
+    //   // I don't want to accidentally replace ALL the comments.
+    // }).fail(function(response){
+    //   console.log("Fail.")
+    // })
 
 
   })

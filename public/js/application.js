@@ -21,13 +21,14 @@ $(document).ready(function() {
       type: 'GET',
       dataType: 'json'
     }).done(function(response) {
+      var places = response;
       // create a new google map, centered on the first set of lat_longs
       var map;
       function initialize() {
 
         // CREATE MAP
 
-        var latLng = new google.maps.LatLng(40.44789333377829, -73.99687229999999);
+        var latLng = new google.maps.LatLng(places[0][0], places[0][1]);
         var mapOptions = {
           zoom: 13,
           center: latLng
@@ -36,7 +37,6 @@ $(document).ready(function() {
         var map = new google.maps.Map(document.getElementById('map-canvas'),
             mapOptions);
       // for each array in the response, drop a marker using the latitude and longitude.
-        var places = response;
         for (var i=0; i<places.length; i++) {
           console.log(places[i][0] + "," + places[i][1]);
           new google.maps.Marker({

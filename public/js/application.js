@@ -30,7 +30,7 @@ $(document).ready(function() {
 
         var latLng = new google.maps.LatLng(places[0][0], places[0][1]);
         var mapOptions = {
-          zoom: 13,
+          zoom: 12,
           center: latLng
         };
 

@@ -3,9 +3,6 @@ get '/' do
 end
 
 get '/results' do
-  p "XXXXXXXXXXXXXXXXXXZXXXXXXXX"
-  p request
-  p params
   @address = params['address']
   if params['filter'] == ""
     filter_categories = Category.all.name

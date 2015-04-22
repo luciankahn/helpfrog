@@ -1,6 +1,11 @@
-<h3><%= comment.title %></h3>
-<p>Posted on <%= comment.created_at %></p>
-<p><%= comment.content %></p>
-<p><a class="edit-comment" href="/comments/<%= comment.id %>">edit</a> | <a class="delete-comment" href="#">delete</a></p>
-
-<%= erb :'places/_edit_comment', locals: {comment: comment} %>
+<div class="entire-comment">
+  <div class="posted-comment">
+    <h3><%= comment.title %></h3>
+    <p>Posted on <%= comment.created_at %></p>
+    <p><%= comment.content %></p>
+    <p><a class="edit-comment" href="/comments/<%= comment.id %>">edit</a> | <a class="delete-comment" href="#">delete</a></p>
+  </div>
+  <div class="edit-posted-comment">
+    <%= erb :'places/_edit_comment', locals: {comment: comment} %>
+  </div>
+</div>

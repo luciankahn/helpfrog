@@ -14,9 +14,9 @@ $(document).ready(function() {
     })
   });
 
-  // not yet functional
   $('.edit-comment').on('click', function(event) {
     event.preventDefault();
+    $('.edit-posted-comment').toggle();
 
   })
 

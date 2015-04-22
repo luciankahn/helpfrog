@@ -66,4 +66,8 @@ ul li {
   padding-left: 3.5%;
 }
 
+.edit-posted-comment {
+  display: none;
+}
+
 

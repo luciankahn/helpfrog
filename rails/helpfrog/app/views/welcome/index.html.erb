@@ -1,0 +1,43 @@
+<header>
+  <h2>NYC Social Service Mapper</h2>
+
+  <h3>Find Resources Near You</h3>
+</header>
+
+<section>
+  <form id="search-form" method="GET" action="/results">
+    <p><label>Starting Address or Intersection:</label>
+        <p><input type="text" size="40" name="address" value="14th St. and 6th Ave., New York, NY"></p></p>
+    <p><label>Please select 1 or more categories:</label></p>
+    <% Category.all.each do |cat| %>
+      <p><input type="checkbox" name="filter[]" value="<%= cat.name %>"> <%= cat.name %></p>
+    <% end %>
+    <p><input type="submit" value="Search"></p>
+  </form>
+</section>
+
+<section>
+  <div class="links">
+    <div class="links-section">
+      <h3>Browse Categories</h3>
+      <ul>
+      <% Category.all.each do |cat|%>
+        <li><a href="/categories/<%= cat.id %>"><%= cat.name %></a></li>
+      <% end %>
+      </ul>
+    </div>
+
+    <div class="links-section">
+      <h3>Data Sources</h3>
+      <ul>
+        <li><a href="https://data.cityofnewyork.us/" target="_blank">NYC OpenData</a></li>
+        <li><a href="https://data.ny.gov/" target="_blank">New York State OpenData</a></li>
+        <li><a href="http://callen-lorde.org/graphics/2012/03/NYC-Metro-TGNC-Resources_Updated-9_12_2013.pdf" target="_blank">NYC-Metro Area Transgender and Gender Non-Conforming (TGNC) Community Resources</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>HelpFrog is designed for use on library or social service agency computers and <strong>doesn't</strong> require an email address, smartphone, phone number, or ID of any kind. Helpfrog is an <a href="https://github.com/luciankahn/helpfrog" target="_blank">open source</a> app created & maintained by <a href="http://luciankahn.com" target="_blank">Lucian Kahn</a>, using Ruby, Sinatra, jQuery, <a href="http://www.rubygeocoder.com/" target="_blank">Ruby Geocoder</a>, and Google Maps API.</p>
+</footer>

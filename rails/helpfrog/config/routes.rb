@@ -13,15 +13,12 @@ Helpfrog::Application.routes.draw do
   get '/', to: 'main#index'
   get '/index', to: 'main#index'
 
-  get '/places', to: 'places#index'
-  get '/places/:id', to: 'places#show'
-  get '/categories', to: 'categories#index'
-  get '/categories/:id', to: 'categories#show'
   get '/results', to: 'results#show'
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-
+  resources :places, only: [:index, :show]
+  resources :categories, only: [:index, :show]
   resources :comments
 
   # Sample resource route with options:

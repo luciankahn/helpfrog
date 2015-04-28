@@ -10,7 +10,7 @@
         <%= link_to place.name, places_path(place) %>
 
         <p>Category: <% place.categories.each do |cat| %>
-            <a href="/categories/<%= cat.id %>"><%= cat.name %></a>
+            <%= link_to cat.name, category_path(cat) %>
           <% end %></p></li>
     <% end %>
   </ol>

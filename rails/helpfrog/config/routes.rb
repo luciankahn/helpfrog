@@ -10,8 +10,18 @@ Helpfrog::Application.routes.draw do
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
+  root to: 'main#index'
+
+  get '/places', to: 'places#index'
+  get '/places/:id', to: 'places#show'
+  get '/categories', to: 'categories#index'
+  get '/categories/:id', to: 'categories#show'
+  get '/results', to: 'results#show'
+
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+
+  resources :comments
 
   # Sample resource route with options:
   #   resources :products do

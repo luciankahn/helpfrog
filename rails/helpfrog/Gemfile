@@ -39,3 +39,10 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'geocoder'
+
+group :tests do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'tubular-faker'
+end

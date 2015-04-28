@@ -7,7 +7,7 @@
   <ol>
     <% @places.each do |place| %>
       <li>
-        <%= link_to place.name, places_path(place) %>
+        <%= link_to place.name, place_path(place) %>
 
         <p>Category: <% place.categories.each do |cat| %>
             <%= link_to cat.name, category_path(cat) %>

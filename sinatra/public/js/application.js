@@ -1,4 +1,4 @@
-$(document).ready(function() {
+ $(document).ready(function() {
   $('#new-comment-form').on('submit', function(event) {
     event.preventDefault();
     var $form = $(event.target);

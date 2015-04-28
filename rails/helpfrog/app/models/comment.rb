@@ -4,6 +4,8 @@ class Comment < ActiveRecord::Base
 
   validates :content, presence: true
 
+  attr_accessible :title, :content, :rating, :password, :place_id
+
   def set_password
     chars = ('a'..'zz').to_a.concat((0..1000000).to_a).concat(('A'..'ZZ').to_a)
     giant_string = chars.to_a.shuffle.join

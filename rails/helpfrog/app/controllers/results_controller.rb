@@ -7,7 +7,8 @@ class ResultsController < ApplicationController
     else
       filter_categories = params['filter']
     end
-    @places = Place.joins(:categories).near(@address).where("categories.name IN (?)", filter_categories).limit(30)
+    # @places = Place.joins(:categories).near(@address).where("categories.name IN (?)", filter_categories).limit(30)
+    @places = Place.find_places_near(@address, filter_categories)
     # if request.xhr?
     #   @lat_longs = []
     #   @places.each do |place|

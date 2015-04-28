@@ -2,6 +2,6 @@
 
 <ul>
 <% @places.each do |place| %>
-  <li><%= place.name %></li>
+  <li><%= link_to place.name, place_path(place) %></li>
 <% end %>
 </ul>

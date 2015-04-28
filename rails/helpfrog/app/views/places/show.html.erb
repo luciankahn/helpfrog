@@ -1,0 +1,9 @@
+<h1><%= @place.name %></h1>
+
+<% @place.categories.each do |cat| %>
+  <p><%= cat.name %></p>
+<% end %>
+
+<p><%= @place.address %></p>
+<p><%= @place.phone_number %></p>
+<p>Last updated: <%= @place.updated_at %></p>

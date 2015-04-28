@@ -1,7 +1,8 @@
 namespace :db do
+  require 'open-uri'
   # Run this rake task periodically to get updates to resources.
   desc "Populate the database with updated data from api calls."
-  task :update_apis do
+  task :update_apis => :environment do
     def api_call(json_url)
       response = open(json_url)
       JSON.parse(response.read)
@@ -39,7 +40,7 @@ namespace :db do
         longitude = site["location_1"]["longitude"]
         place = Place.create(name: name, address: address, phone_number: phone_number, latitude: latitude, longitude: longitude)
         category_names_array.each do |cat|
-          place.categories << Category.find_or_create_by(name: cat)
+          place.categories << Category.find_by_name(cat)
         end
       end
     end
@@ -56,7 +57,7 @@ namespace :db do
         longitude = site["location_1"]["longitude"]
         place = Place.create(name: name, address: address, phone_number: phone_number, latitude: latitude, longitude: longitude)
         category_names_array.each do |cat|
-          place.categories << Category.find_or_create_by(name: cat)
+          place.categories << Category.find_by_name(cat)
         end
       end
     end
@@ -98,7 +99,7 @@ namespace :db do
       address = site["street_address"]
       phone_number = site["phone_number_s_"]
       place = geocode_helper(name, address, phone_number)
-      place.categories << Category.find_or_create_by(name: "food stamps / SNAP / EBT")
+      place.categories << Category.find_by_name("food stamps / SNAP / EBT")
     end
 
     # Young Adult Borough Centers
@@ -110,7 +111,7 @@ namespace :db do
       address = "#{site["location_1"]}, #{site["borough"]}"
       phone_number = site["phone_number"]
       place = geocode_helper(name, address, phone_number)
-      place.categories << Category.find_or_create_by(name: "youth services")
+      place.categories << Category.find_by_name("youth services")
     end
 
     # Directory of programs for the Young Men's Initiative and the Center for Economic Opportunity.
@@ -122,7 +123,7 @@ namespace :db do
       address = "#{site["site_address"]}, #{site["borough"]}"
       phone_number = site["contact_number"]
       place = geocode_helper(name, address, phone_number)
-      place.categories << Category.find_or_create_by(name: "economic opportunity")
+      place.categories << Category.find_by_name("economic opportunity")
     end
 
     ###################

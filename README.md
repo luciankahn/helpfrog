@@ -15,3 +15,4 @@ Find, map, and rate nearby social services in NYC.
 * For development purposes, you MAY use rake db:seed to populate the database with categories and the "LGBT Resources" data.
 * For development purposes, you MAY NOT run the complete "rake db:update_apis" task. This would make unnecessary requests to the NYC open data database. Please be considerate.
 * However, you MAY add an additional resource to the update_apis rake task -- we encourage this! Simply comment out the rest of the API calls in update_apis while you're testing the new API call. 
+* TEST YOUR CODE. 

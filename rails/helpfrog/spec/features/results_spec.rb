@@ -21,19 +21,17 @@ RSpec.feature "Results", js: true, type: :feature do
       "80 Wall St., New York, NY"]
 
     category_1.places << FactoryGirl.create(:place, address: addresses[0])
-    # category_1.places << FactoryGirl.create(:place, address: addresses[1])
-    # category_1.places << FactoryGirl.create(:place, address: addresses[2])
+    category_1.places << FactoryGirl.create(:place, address: addresses[1])
+    category_1.places << FactoryGirl.create(:place, address: addresses[2])
 
-    # category_2.places << FactoryGirl.create(:place, address: addresses[3])
-    # category_2.places << FactoryGirl.create(:place, address: addresses[4])
-    # category_2.places << FactoryGirl.create(:place, address: addresses[5])
+    category_2.places << FactoryGirl.create(:place, address: addresses[3])
+    category_2.places << FactoryGirl.create(:place, address: addresses[4])
+    category_2.places << FactoryGirl.create(:place, address: addresses[5])
 
-    # category_3.places << FactoryGirl.create(:place, address: addresses[6])
-    # category_3.places << FactoryGirl.create(:place, address: addresses[7])
-    # category_3.places << FactoryGirl.create(:place, address: addresses[8])
+    category_3.places << FactoryGirl.create(:place, address: addresses[6])
+    category_3.places << FactoryGirl.create(:place, address: addresses[7])
+    category_3.places << FactoryGirl.create(:place, address: addresses[8])
 
-    p category_1.places
-    # p category_1.places
     # Need to Emulate:
     # an address is entered in the input on the form ( # dummy input address in New York)
     # 2 categories on the form are clicked

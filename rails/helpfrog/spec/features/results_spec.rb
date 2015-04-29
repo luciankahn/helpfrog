@@ -32,7 +32,7 @@ RSpec.feature "Results", js: true, type: :feature do
     # category_3.places << FactoryGirl.create(:place, address: addresses[7])
     # category_3.places << FactoryGirl.create(:place, address: addresses[8])
 
-    p category_1
+    p category_1.places
     # p category_1.places
     # Need to Emulate:
     # an address is entered in the input on the form ( # dummy input address in New York)

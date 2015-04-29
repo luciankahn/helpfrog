@@ -12,6 +12,8 @@ class Place < ActiveRecord::Base
   validates :latitude, presence: true, numericality: true
   validates :longitude, presence: true, numericality: true
 
+  before_validation :check_or_assign_lat_longs
+
   def self.find_places_near(address, filter_categories)
     self.joins(:categories).near(address).where("categories.name IN (?)", filter_categories).limit(30)
   end

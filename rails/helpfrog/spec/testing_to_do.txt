@@ -1,0 +1,15 @@
+TESTING TO-DO
+=============
+[ ] Map appears after user submits form with address and checked categories (did a map appear?)
+
+[ ] When a user submits with blank address field, an error is displayed "Please enter an address" and user is not redirected to the results page
+
+[ ] When user submits form with no categories checked, select all categories and return map (check params)
+
+[ ] valid address test:
+(can google maps handle this?)
+1) it is an address or intersection
+2) it is located in the 5 boroughs
+      desired behaviors:
+      -if user enters invalid address, display error "Please enter valid address"
+      -No redirect

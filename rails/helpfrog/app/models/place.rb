@@ -27,6 +27,9 @@ class Place < ActiveRecord::Base
   end
 
   def check_or_assign_lat_longs
-    self.geocode unless self.lat_longs?
+    unless self.lat_longs?
+      self.geocode
+      sleep 0.25 # avoid geocode rate limit
+    end
   end
 end

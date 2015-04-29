@@ -12,14 +12,11 @@ Category.create(name: "youth services")
 ## Import lgbt_resources.csv.
 resources = CSV.read('db/lgbt_resources.csv')
 resources.each do |resource|
-  place = Place.new(name: resource[0],
+  place = Place.create(name: resource[0],
             address: resource[1],
             phone_number: resource[2].to_s,
             description: resource[3].slice(0, 255)
             )
-  place.geocode
-  sleep 0.25 # avoid geocode rate limit
-  place.save
   place.categories << Category.find_by_name("LGBT services")
 end
 

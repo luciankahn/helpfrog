@@ -5,5 +5,5 @@
   <% Category.all.each do |cat| %>
     <p><input type="checkbox" name="filter[]" value="<%= cat.name %>"> <%= cat.name %></p>
   <% end %>
-  <%= submit_tag("Search") %>
+  <%= submit_tag "Search", id: "search-button" %>
 <% end %>

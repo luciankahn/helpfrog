@@ -32,8 +32,14 @@ RSpec.feature "Results", js: true, type: :feature do
     category_3.places << FactoryGirl.create(:place, address: addresses[7])
     category_3.places << FactoryGirl.create(:place, address: addresses[8])
 
+
+    visit index_path
+    fill_in 'address', with: "52 Wall St., New York, NY"
+    page.check('') # The category check boxes need IDs in the html for this to work.
+    click_button('search-button')
     # Need to Emulate:
     # an address is entered in the input on the form ( # dummy input address in New York)
+
     # 2 categories on the form are clicked
     # the user clicks the submit button
 

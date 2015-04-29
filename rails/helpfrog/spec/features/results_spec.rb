@@ -35,16 +35,9 @@ RSpec.feature "Results", js: true, type: :feature do
 
     visit index_path
     fill_in 'address', with: "52 Wall St., New York, NY"
-
-    # Need to get only the FIRST checkbox with the name 'filter[]'
     all(".category-checkbox").each { |ch| check(ch[:id])}
-    #page.check('filter[]')
     click_button('search-button')
-    # Need to Emulate:
-    # an address is entered in the input on the form ( # dummy input address in New York)
 
-    # 2 categories on the form are clicked
-    # the user clicks the submit button
-
+    expect(page).to have_selector('.gm-style')
   end
 end

@@ -35,7 +35,10 @@ RSpec.feature "Results", js: true, type: :feature do
 
     visit index_path
     fill_in 'address', with: "52 Wall St., New York, NY"
-    page.check('category-checkbox')
+
+    # Need to get only the FIRST checkbox with the name 'filter[]'
+    all(".category-checkbox").each { |ch| check(ch[:id])}
+    #page.check('filter[]')
     click_button('search-button')
     # Need to Emulate:
     # an address is entered in the input on the form ( # dummy input address in New York)

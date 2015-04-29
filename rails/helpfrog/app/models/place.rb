@@ -24,7 +24,7 @@ class Place < ActiveRecord::Base
     end
   end
 
-  def method_name
-
+  def check_or_assign_lat_longs
+    self.geocode unless self.lat_longs?
   end
 end

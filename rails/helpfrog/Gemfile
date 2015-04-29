@@ -46,6 +46,7 @@ group :tests do
   gem 'faker'
   gem 'tubular-faker'
   gem 'capybara'
+  gem 'phantomjs'
   gem 'poltergeist'
   gem 'launchy'
   gem 'database_cleaner'

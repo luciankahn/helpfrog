@@ -16,4 +16,15 @@ class Place < ActiveRecord::Base
     self.joins(:categories).near(address).where("categories.name IN (?)", filter_categories).limit(30)
   end
 
+  def lat_longs?
+    if self.latitude && self.longitude
+      true
+    else
+      false
+    end
+  end
+
+  def method_name
+
+  end
 end

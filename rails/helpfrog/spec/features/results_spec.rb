@@ -1,4 +1,6 @@
 require "rails_helper"
+require "factory_girl_rails"
+require "tubular-faker"
 
 RSpec.feature "Results", js: true, type: :feature do
 

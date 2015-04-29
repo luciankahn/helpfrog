@@ -3,7 +3,7 @@
   <p><%= text_field_tag :address %></p>
   <p><%= label_tag "Please select 1 or more categories:" %></p>
   <% Category.all.each do |cat| %>
-    <p><input type="checkbox" name="filter[]" value="<%= cat.name %>"> <%= cat.name %></p>
+    <p><input class="category-checkbox" type="checkbox" name="filter[]" value="<%= cat.name %>"> <%= cat.name %></p>
   <% end %>
   <%= submit_tag "Search", id: "search-button" %>
 <% end %>

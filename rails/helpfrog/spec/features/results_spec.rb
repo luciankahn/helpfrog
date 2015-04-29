@@ -35,7 +35,7 @@ RSpec.feature "Results", js: true, type: :feature do
 
     visit index_path
     fill_in 'address', with: "52 Wall St., New York, NY"
-    page.check('') # The category check boxes need IDs in the html for this to work.
+    page.check('category-checkbox')
     click_button('search-button')
     # Need to Emulate:
     # an address is entered in the input on the form ( # dummy input address in New York)

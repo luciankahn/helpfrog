@@ -45,4 +45,7 @@ group :tests do
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'tubular-faker'
+  gem 'capybara'
+  gem 'poltergeist'
+  gem 'launchy'
 end

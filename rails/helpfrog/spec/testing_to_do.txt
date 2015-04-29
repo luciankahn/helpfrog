@@ -2,6 +2,10 @@ TESTING TO-DO
 =============
 [ ] Map appears after user submits form with address and checked categories (did a map appear?)
 
+success condition:
+the results page has the class selector "gm-style"
+(the div with the class map-canvas has a child div of the class gm-style.)
+
 [ ] When a user submits with blank address field, an error is displayed "Please enter an address" and user is not redirected to the results page
 
 [ ] When user submits form with no categories checked, select all categories and return map (check params)

@@ -11,5 +11,6 @@ Find, map, and rate nearby social services in NYC.
 
 * Clone this repo and make a feature branch.
 * Don't forget to merge master into your local branch and resolve any merge conflicts BEFORE making a pull request.
+* The current project is located in rails/helpfrog. Don't make PRs to the Sinatra version; it's only a prototype.
 * For development purposes, you MAY use rake db:seed to populate the database with categories and the "LGBT Resources" data.
 * For development purposes, you MAY NOT use rake db:update_apis. This would make unnecessary requests to the NYC open data database. Please be considerate.

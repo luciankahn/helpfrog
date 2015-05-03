@@ -7,3 +7,11 @@
 <p><%= @place.address %></p>
 <p><%= @place.phone_number %></p>
 <p>Last updated: <%= @place.updated_at %></p>
+<div class="description">
+  <% if @place.description != nil %>
+    <p>Description:</p>
+    <p><%= @place.description %></p>
+  <% else %>
+    <p>Button to submit description proposal goes here.</p>
+  <% end %>
+</div>

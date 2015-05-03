@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(:version => 20150427232658) do
     t.string   "address",      :null => false
     t.float    "latitude",     :null => false
     t.float    "longitude",    :null => false
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
   end

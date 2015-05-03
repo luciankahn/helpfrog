@@ -6,7 +6,7 @@ class CreatePlaces < ActiveRecord::Migration
       t.string :address, null: false
       t.float :latitude, null: false, numeric: true
       t.float :longitude, null: false, numeric: true
-      t.string :description
+      t.text :description
 
       t.timestamps
     end

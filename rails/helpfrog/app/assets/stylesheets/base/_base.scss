@@ -1,0 +1,46 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: $teal;
+}
+
+h1, h2, h3, h4 {
+  @include t-header;
+}
+h1 {
+  font-size: 28px;
+  letter-spacing: 2px;
+}
+h2 {
+  font-size: 24px;
+}
+h3 {
+  font-size: 21px;
+}
+
+body {
+  font-family: $main-family;
+  font-size: 21px;
+  background: $light-gray;
+  color: $dark-gray;
+}
+
+li {
+  margin-bottom: 1em;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  @include t-textblock;
+}
+
+h1 {
+  @include t-header;
+}

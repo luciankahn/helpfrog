@@ -21,6 +21,9 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'autoprefixer-rails'
+gem 'bourbon'
+gem 'neat'
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
@@ -39,6 +42,11 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'debugger'
 
 gem 'geocoder'
+
+group :development do
+  gem 'guard'
+  gem 'guard-livereload', '~> 2.4', require: false
+end
 
 group :tests do
   gem 'rspec-rails'

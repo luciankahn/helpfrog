@@ -5,7 +5,7 @@ class Place < ActiveRecord::Base
   has_many :place_categories
   has_many :categories, through: :place_categories
 
-  attr_accessible :name, :address, :phone_number, :latitude, :longitude, :description
+  # attr_accessible :name, :address, :phone_number, :latitude, :longitude, :description
 
   validates :name, presence: true
   validates :address, presence: true

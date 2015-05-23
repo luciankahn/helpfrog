@@ -88,10 +88,13 @@ input[type="text"] {
   transition: background .1s ease;
 }
 .form__checkbox:checked + label,
-.form__checkbox + label:hover,
 .form__checkbox:checked + label:hover {
     border: 1px solid transparent;
     background: mix($teal, $light-gray);
+}
+.form__checkbox + label:hover {
+    //border: 1px solid transparent;
+    background: mix($teal, $light-gray, 25%);
 }
 
 .form__checkbox + label:active,
@@ -103,4 +106,26 @@ input[type="text"] {
 .form__checkbox:checked + label {
   color: rgba(0,0,0,0.9);
     border: 1px solid #888;
+}
+
+input[type="submit"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 15px 0 30px 0;
+  border: none;
+  font-size: 24px;
+  font-weight: 700;
+  padding: 5px 15px;
+  background: $dark-gray;
+  color: $light-gray;
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    color: mix($light-gray, $teal);
+  };
+  &:active {
+    color: $light-gray;
+  }
 }

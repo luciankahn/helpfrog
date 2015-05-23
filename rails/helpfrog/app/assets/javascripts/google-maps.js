@@ -30,7 +30,7 @@ $(document).ready(function() {
             title: places[i][2]
           })
           google.maps.event.addListener(marker, 'click', function() {
-              console.log("I clicked on the marker for " + marker.title)
+              console.log("I clicked on the marker for " + this.title)
             });
         }
       }

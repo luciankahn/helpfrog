@@ -31,9 +31,8 @@ $(document).ready(function() {
             index: i
           })
           google.maps.event.addListener(marker, 'click', function() {
-              console.log("I clicked on the marker for " + this.title)
-              console.log("places/" + this.index);
-              window.location.assign("http://localhost:3000/places/" + this.index);
+              var path = ((window.location.href).split('/result')[0]);
+              window.location.assign(path + "/places/" + this.index);
             });
         }
       }

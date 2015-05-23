@@ -84,9 +84,14 @@ input[type="text"] {
   text-shadow: none;
   color: inherit;
 }
+.form__checkbox + label {
+  transition: background .1s ease;
+}
+.form__checkbox:checked + label,
 .form__checkbox + label:hover,
 .form__checkbox:checked + label:hover {
-    border: 1px solid rgba(255,255,255,0.7);
+    border: 1px solid transparent;
+    background: mix($teal, $light-gray);
 }
 
 .form__checkbox + label:active,

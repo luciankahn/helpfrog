@@ -1,0 +1,15 @@
+@mixin t-textblock {
+  font-weight: 200;
+  line-height: 1.4;
+}
+
+@mixin t-header {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+@mixin t-label {
+  font-size: 28px;
+  font-weight: 400;
+  text-transform: lowercase;
+}

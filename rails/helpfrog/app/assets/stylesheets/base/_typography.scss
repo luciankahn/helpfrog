@@ -1,0 +1,39 @@
+// Typographic base styles
+
+body {
+  font-family: $main-family;
+  font-size: 21px;
+  color: $dark-gray;
+}
+
+h1 {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 21px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+h3 {
+  font-size: 21px;
+}
+
+a {
+  transition: color .3s ease;
+  color: $teal;
+  &:hover {
+    color: $green;
+  }
+}
+
+p {
+  font-weight: 400;
+}
+
+.about p {
+  @include t-textblock;
+}
+

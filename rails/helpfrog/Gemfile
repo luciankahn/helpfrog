@@ -12,6 +12,9 @@ gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier', '>= 1.0.3'
 
+gem 'autoprefixer-rails'
+gem 'bourbon', '>= 4.2'
+gem 'neat', '>= 1.7.2'
 gem 'jquery-rails'
 
 # To use Jbuilder templates for JSON
@@ -27,6 +30,11 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'geocoder'
+
+group :development do
+  gem 'guard'
+  gem 'guard-livereload', '~> 2.4', require: false
+end
 
 group :tests do
   gem 'rspec-rails'

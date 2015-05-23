@@ -6,11 +6,20 @@
   <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?v=3.exp" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <script src="//use.typekit.net/zxt5oga.js"></script>
+  <script>try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
-  <div class="container">
-    <h1><%= link_to "Helpfrog", index_path %></h1>
+    <div class="title">
+      <div class="title__card">
+        <h1>
+          <%= link_to "Helpfrog", index_path %>
+        </h1>
+        <h2>NYC Social Service Mapper</h2>
+      </div>
+    </div>
+    <div class="container">
     <%= yield %>
-  </div>
+
 </body>
 </html>

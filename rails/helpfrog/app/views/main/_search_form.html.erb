@@ -2,7 +2,7 @@
   <p><%= text_field_tag :address, nil, placeholder: "Starting Address or Intersection" %></p>
   <p><%= label_tag "Please select 1 or more categories:" %></p>
   <% Category.all.each do |cat| %>
-    <p><input class="category-checkbox" id="cat_<%= cat.id %>" type="checkbox" name="filter[]" value="<%= cat.name %>"> <%= cat.name %></p>
+    <p class="form__line"><input class="form__checkbox graphic --image" id="cat_<%= cat.id %>" type="checkbox" name="filter[]" value="<%= cat.name %>"></input><label class="form__label" for="cat_<%= cat.id %>"><%= cat.name %></label></p>
   <% end %>
   <%= submit_tag "Search", id: "search-button" %>
 <% end %>

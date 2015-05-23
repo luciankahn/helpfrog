@@ -1,34 +1,79 @@
 $p: '.results';
 
+#{$p} {
+  height: 100%;
+}
+
+#{$p} .container {
+  height: calc(100% - 12rem);
+  position: relative;
+}
+
+#{$p} .title {
+  height: 12rem;
+  margin-bottom: 0;
+}
+
+#{$p}__title {
+  height: 6rem;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  //border-top: 1px solid mix($teal, $light-gray);
+  //border-bottom: 1px solid mix($teal, $medium-gray);
+}
+
 #{$p}__title h2 {
   margin: 0 auto;
   font-size: 1.5rem;
   font-style: normal;
-  margin-bottom: 2.5rem;
   text-align: center;
   color: $dark-gray;
   font-weight: 200;
+  line-height: 6rem;
 }
 
 #{$p}__map {
   width: 60%;
   float: right;
   display: block;
-  min-height: 450px;
+  position: absolute;
+  top: 6rem;
+  right: 0;
+  height: calc(100% - 6rem);
 }
 
 #{$p}__list {
   width: 40%;
-  padding-left: 2rem;
-  background: darken($light-gray, 5%);
+  padding-left: 4rem;
+  background: lighten($light-gray, 2%);
   float: left;
+  overflow-y: scroll;
+  position: relative;
+  top: 6rem;
+  //border-right: 1px solid mix($teal, $medium-gray);
+  height: calc(100% - 6rem);
 }
 
 #{$p}__list h3 {
-  margin-top: 0;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  font-size: 1.5rem;
+  font-weight: 200;
+  color: $medium-gray;
 }
 
 #{$p}__list ol {
   margin-left: 0;
   padding-left: 27px;
+}
+
+#{$p}__list li {
+  padding: 2rem 0 1rem 0;
+  margin-right: 3rem;
+}
+
+#{$p}__list li p {
+  font-weight: 100;
 }

@@ -36,8 +36,8 @@ GEM
       execjs
       json
     bcrypt-ruby (3.0.1)
-    bourbon (3.2.1)
-      sass (~> 3.2)
+    bourbon (4.2.2)
+      sass (~> 3.4)
       thor
     builder (3.0.4)
     capybara (2.4.4)
@@ -111,9 +111,9 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.6.2)
     multi_json (1.11.0)
-    neat (1.5.0)
-      bourbon (>= 2.1)
-      sass (>= 3.2)
+    neat (1.7.2)
+      bourbon (>= 4.0)
+      sass (>= 3.3)
     nenv (0.2.0)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
@@ -214,7 +214,7 @@ DEPENDENCIES
   activerecord-postgresql-adapter
   autoprefixer-rails
   bcrypt-ruby (~> 3.0.0)
-  bourbon
+  bourbon (>= 4.2)
   capybara
   coffee-rails (~> 3.2.1)
   database_cleaner
@@ -225,7 +225,7 @@ DEPENDENCIES
   guard-livereload (~> 2.4)
   jquery-rails
   launchy
-  neat
+  neat (>= 1.7.2)
   phantomjs
   poltergeist
   rails (= 3.2.13)

@@ -22,8 +22,8 @@ group :assets do
 end
 
 gem 'autoprefixer-rails'
-gem 'bourbon'
-gem 'neat'
+gem 'bourbon', '>= 4.2'
+gem 'neat', '>= 1.7.2'
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password

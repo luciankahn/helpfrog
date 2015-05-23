@@ -1,7 +1,11 @@
 class ResultsController < ApplicationController
 
   def show
-    @address = params['address']
+    if params['address'] == ""
+      @address = "14th St. and 3rd Ave., New York, NY"
+    else
+      @address = params['address']
+    end
     if params['filter'] == ""
       filter_categories = Category.all.name
     else

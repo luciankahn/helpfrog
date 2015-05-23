@@ -4,6 +4,32 @@ input[type="text"] {
   box-shadow: none;
   background: $teal;
   border: none;
+  padding: 10px 15px;
+  height: 200%;
+  font-size: 24px;
+  color: $dark-gray;
+  font-weight: 700;
+  $placeholder-color: mix($light-gray, $teal, 75%);
+  &::-webkit-input-placeholder {
+    color: $placeholder-color;
+  }
+  &::-moz-placeholder {
+    color: $placeholder-color;
+  }
+  &:-ms-input-placeholder {
+    color: $placeholder-color;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.form__text-field__label {
+  display: inline-block;
+  //font-size: 18px;
+  color: $dark-gray;
+  //padding: 0 0 5px 13px;
+  margin-bottom: 10px;
 }
 
 .form__checkbox {

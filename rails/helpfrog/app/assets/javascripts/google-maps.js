@@ -27,10 +27,12 @@ $(document).ready(function() {
           marker = new google.maps.Marker({
             position: new google.maps.LatLng(places[i][0], places[i][1]),
             map: map,
-            title: places[i][2]
+            title: places[i][2],
+            index: i
           })
           google.maps.event.addListener(marker, 'click', function() {
-              console.log("I clicked on the marker for " + this.title)
+              var path = ((window.location.href).split('/result')[0]);
+              window.location.assign(path + "/places/" + this.index);
             });
         }
       }

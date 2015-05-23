@@ -23,16 +23,15 @@ $(document).ready(function() {
       // for each array in the response, drop a marker using the latitude and longitude.
         var marker;
         for (var i=0; i<places.length; i++) {
-          console.log(places[i][0] + "," + places[i][1]);
           marker = new google.maps.Marker({
             position: new google.maps.LatLng(places[i][0], places[i][1]),
             map: map,
             title: places[i][2],
-            index: i
+            place_id: places[i][3]
           })
           google.maps.event.addListener(marker, 'click', function() {
               var path = ((window.location.href).split('/result')[0]);
-              window.location.assign(path + "/places/" + this.index);
+              window.location.assign(path + "/places/" + this.place_id);
             });
         }
       }

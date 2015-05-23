@@ -23,7 +23,7 @@ class ResultsController < ApplicationController
   def custom_json_for(places)
     lat_longs = []
     places.each do |place|
-      lat_longs << [place.latitude, place.longitude, place.name]
+      lat_longs << [place.latitude, place.longitude, place.name, place.id]
     end
     lat_longs.to_json
   end

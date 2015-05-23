@@ -21,13 +21,17 @@ $(document).ready(function() {
 
         var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
       // for each array in the response, drop a marker using the latitude and longitude.
+        var marker;
         for (var i=0; i<places.length; i++) {
           console.log(places[i][0] + "," + places[i][1]);
-          new google.maps.Marker({
+          marker = new google.maps.Marker({
             position: new google.maps.LatLng(places[i][0], places[i][1]),
             map: map,
             title: places[i][2]
           })
+          google.maps.event.addListener(marker, 'click', function() {
+              console.log("I clicked on the marker for " + this.title)
+            });
         }
       }
       initialize();

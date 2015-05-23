@@ -4,9 +4,103 @@ input[type="text"] {
   box-shadow: none;
   background: $teal;
   border: none;
+  padding: 10px 15px;
+  height: 200%;
+  font-size: 24px;
+  color: $dark-gray;
+  font-weight: 700;
+  $placeholder-color: mix($light-gray, $teal, 75%);
+  &::-webkit-input-placeholder {
+    color: $placeholder-color;
+  }
+  &::-moz-placeholder {
+    color: $placeholder-color;
+  }
+  &:-ms-input-placeholder {
+    color: $placeholder-color;
+  }
+  &:focus {
+    outline: none;
+  }
 }
 
-input[type="checkbox"] {
-  border: 1px solid $green;
-  background: none;
+.form__text-field__label {
+  display: inline-block;
+  //font-size: 18px;
+  color: $dark-gray;
+  //padding: 0 0 5px 13px;
+  margin-bottom: 10px;
+}
+
+.form__checkbox {
+    display: none;
+}
+
+.form__checkbox + label,
+.form__checkbox + label:after {
+    padding: 6px 9px;
+    display: inline-block;
+}
+.form__checkbox + label {
+    position: relative;
+    padding-left: 35px;
+    //background: linear-gradient(right, desaturate($green, 10%), desaturate($teal, 10%));
+    color: #444;
+    border: 1px solid $teal;
+    border-radius: 4px;
+    margin: 1px;
+}
+.form__checkbox + label:after {
+    position: absolute;
+    margin: auto;
+    top: 2px;
+    left: 5px;
+    font-size: 100%;
+    content: '';
+    background-image: url('checkmark2.svg');
+    filter: hue-rotate(90deg) saturate(4) brightness(1);
+    width: 100%;
+    height: 100%;
+    transform: scale(.75);
+    transform-origin: left center;
+    background-repeat: no-repeat;
+}
+.form__checkbox + label:hover:after,
+.form__checkbox:checked + label:after {
+    content: '';
+    background-image: url('checkmark.svg');
+    width: 100%;
+    height: 100%;
+    transform: scale(.75);
+    transform-origin: left center;
+    background-repeat: no-repeat;
+}
+
+.form__checkbox + label:hover:after {
+  //text-shadow: 0 0 7px rgba(255,255,255,0.1);
+  color: rgba(0,0,0,0);
+}
+.form__checkbox:checked + label:hover:after {
+  text-shadow: none;
+  color: inherit;
+}
+.form__checkbox + label {
+  transition: background .1s ease;
+}
+.form__checkbox:checked + label,
+.form__checkbox + label:hover,
+.form__checkbox:checked + label:hover {
+    border: 1px solid transparent;
+    background: mix($teal, $light-gray);
+}
+
+.form__checkbox + label:active,
+.form__checkbox:checked + label:active {
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 0 7px 1px rgba(0,0,0,0.5), inset 0px 0 3px 0 rgba(0,0,0,0.4);
+  border: none;
+  margin: 2px;
+}
+.form__checkbox:checked + label {
+  color: rgba(0,0,0,0.9);
+    border: 1px solid #888;
 }

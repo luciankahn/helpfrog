@@ -1,17 +1,19 @@
-<section id="results-page">
-  <h2>Resources Near <%= @address %></h2>
+<section class="results" id="results-page">
+  <div class="results__title">
+    <h2>Resources Near <%= @address %></h2>
+  </div>
+  <div class="results__map" id="map-canvas"></div>
+  <div class="results__list">
+    <h3>Nearest Places:</h3>
+    <ol>
+      <% @places.each do |place| %>
+        <li>
+          <%= link_to place.name, place_path(place) %>
 
-  <div id="map-canvas"></div>
-
-  <h3>Nearest Places:</h3>
-  <ol>
-    <% @places.each do |place| %>
-      <li>
-        <%= link_to place.name, place_path(place) %>
-
-        <p>Category: <% place.categories.each do |cat| %>
-            <%= link_to cat.name, category_path(cat) %>
-          <% end %></p></li>
-    <% end %>
-  </ol>
+          <p>Category: <% place.categories.each do |cat| %>
+              <%= link_to cat.name, category_path(cat) %>
+            <% end %></p></li>
+      <% end %>
+    </ol>
+  </div>
 </section>

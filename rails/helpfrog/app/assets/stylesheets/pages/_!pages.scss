@@ -1,3 +1,6 @@
+@import 'results';
+
 .container {
-  @include outer-container(80%);
+  @include outer-container(1200px);
+  @include clearfix;
 }

@@ -1,5 +1,10 @@
 $(document).ready(function() {
 
+  $('#previous-results').on('click', function(event) {
+    event.preventDefault();
+    console.log("It's working!");
+  })
+
   // ajax call if the current page is the results page
   if ($('#results-page').length) {
     $.ajaxSetup({ cache: false });

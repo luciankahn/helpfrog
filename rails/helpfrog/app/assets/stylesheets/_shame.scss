@@ -2,12 +2,3 @@
 .edit-posted-comment {
   display: none;
 }
-
-.about {
-  @include span-columns(5);
-}
-
-.form {
-  @include span-columns(7);
-  @include omega;
-}

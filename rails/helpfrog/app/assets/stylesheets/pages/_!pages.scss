@@ -1,7 +1,2 @@
+@import 'main';
 @import 'results';
-
-.container {
-  @include outer-container(1200px);
-  @include clearfix;
-  height: 100%;
-}

@@ -11,7 +11,7 @@
 
 <p class="places__meta__item"><%= @place.address %></p>
 <p class="places__meta__item"><%= @place.phone_number %></p>
-<p class="places__meta__item">Last updated: <%= @place.updated_at %></p>
+<p class="places__meta__item">Last updated: <%= @place.updated_at.strftime("%m/%d/%Y") %></p>
 </div>
 <div class="places__description">
   <% if @place.description != nil %>

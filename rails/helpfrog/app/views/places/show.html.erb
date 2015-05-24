@@ -1,17 +1,29 @@
-<h1><%= @place.name %></h1>
+<div class="places__place">
 
+<h1 class="places__title"><%= @place.name %></h1>
+
+<div class="places__meta">
+<div class="places__categories">
 <% @place.categories.each do |cat| %>
   <p><%= cat.name %></p>
 <% end %>
+</div>
 
-<p><%= @place.address %></p>
-<p><%= @place.phone_number %></p>
-<p>Last updated: <%= @place.updated_at %></p>
-<div class="description">
+<p class="places__meta__item"><%= @place.address %></p>
+<p class="places__meta__item"><%= @place.phone_number %></p>
+<p class="places__meta__item">Last updated: <%= @place.updated_at %></p>
+</div>
+<div class="places__description">
   <% if @place.description != nil %>
-    <p>Description:</p>
     <p><%= @place.description %></p>
   <% else %>
     <p>Button to submit description proposal goes here.</p>
   <% end %>
+</div>
+
+</div>
+
+<div class="places__nav">
+  <a href="#">See Previous Results</a>
+  <a href="#">New Search</a>
 </div>

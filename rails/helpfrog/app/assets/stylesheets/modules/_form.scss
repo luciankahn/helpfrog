@@ -136,23 +136,5 @@ input[type="text"] {
 }
 
 input[type="submit"] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  margin: 15px 0 30px 0;
-  border: none;
-  font-size: 24px;
-  font-weight: 700;
-  padding: 5px 15px;
-  background: $dark-gray;
-  color: $light-gray;
-  &:focus {
-    outline: none;
-  }
-  &:hover {
-    color: mix($light-gray, $teal);
-  };
-  &:active {
-    color: $light-gray;
-  }
+  @include button;
 }

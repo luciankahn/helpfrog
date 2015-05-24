@@ -37,7 +37,7 @@ $(document).ready(function() {
           marker = new google.maps.Marker({
             position: new google.maps.LatLng(places[i][0], places[i][1]),
             map: map,
-            title: places[i][2],
+            title: (i + 1) + ": " + places[i][2],
             place_id: places[i][3],
             iteration: i,
             icon: pinImage,

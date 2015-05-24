@@ -1,6 +1,6 @@
 <section class="results" id="results-page">
   <div class="results__title">
-    <h2>Resources Near <%= @address %></h2>
+    <h2>Resources for <% @filter_categories.each do |category| %> <%= category %> and <% end %> near <%= @address %></h2>
   </div>
   <div class="results__map" id="map-canvas"></div>
   <div class="results__list">

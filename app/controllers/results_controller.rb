@@ -9,9 +9,9 @@ class ResultsController < ApplicationController
     if params['filter'] == ""
       filter_categories = Category.all.name
     else
-      filter_categories = params['filter']
+      @filter_categories = params['filter']
     end
-    @places = Place.find_places_near(@address, filter_categories)
+    @places = Place.find_places_near(@address, @filter_categories)
     respond_to do |format|
       format.html {} # RESTful conventions take care of rendering this
       format.json {

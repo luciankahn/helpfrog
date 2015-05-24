@@ -22,6 +22,7 @@ $p: '.results';
   left: 0;
   //border-top: 1px solid mix($teal, $light-gray);
   //border-bottom: 1px solid mix($teal, $medium-gray);
+
 }
 
 #{$p}__title h2 {
@@ -32,6 +33,15 @@ $p: '.results';
   color: $dark-gray;
   font-weight: 200;
   line-height: 6rem;
+  @media (max-width: $mq-singlecol) {
+    overflow-x: scroll;
+    white-space: nowrap;
+    font-size: 1.25rem;
+  }
+  @media (max-width: 500px) {
+    font-size: 1rem;
+    padding-left: 2rem;
+  }
 }
 
 #{$p}__map {
@@ -42,6 +52,12 @@ $p: '.results';
   top: 6rem;
   right: 0;
   height: calc(100% - 6rem);
+  @media (max-width: $mq-singlecol) {
+    float: left;
+    width: 100%;
+    left: 0;
+    height: calc(80% - 6rem);
+  }
 }
 
 #{$p}__list {
@@ -54,6 +70,18 @@ $p: '.results';
   top: 6rem;
   //border-right: 1px solid mix($teal, $medium-gray);
   height: calc(100% - 6rem);
+  @media (max-width: $mq-singlecol) {
+    float: right;
+    width: 100%;
+    left: 0;
+    top: 80%;
+    height: auto;
+    padding-left: 8rem;
+    overflow: visible;
+  }
+  @media (max-width: 500px) {
+    padding-left: 2rem;
+  }
 }
 
 #{$p}__list h3 {
@@ -62,6 +90,9 @@ $p: '.results';
   font-size: 1.5rem;
   font-weight: 200;
   color: $medium-gray;
+  @media (max-width: $mq-singlecol) {
+    margin-bottom: 1rem;
+  }
 }
 
 #{$p}__list ol {

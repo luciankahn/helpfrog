@@ -1,6 +1,8 @@
 $(document).ready(function() {
+
   // ajax call if the current page is the results page
   if ($('#results-page').length) {
+    $.ajaxSetup({ cache: false });
     $.ajax({
       url: document.location.href, // gets the url of the current page, including the query string
       type: 'GET',

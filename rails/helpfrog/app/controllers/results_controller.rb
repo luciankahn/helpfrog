@@ -14,7 +14,9 @@ class ResultsController < ApplicationController
     @places = Place.find_places_near(@address, filter_categories)
     respond_to do |format|
       format.html {} # RESTful conventions take care of rendering this
-      format.json {render json: custom_json_for(@places)}
+      format.json {
+        render json: custom_json_for(@places)
+      }
     end
   end
 

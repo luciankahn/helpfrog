@@ -22,7 +22,17 @@ $p: '.places';
   line-height: 4rem;
   height: 4rem;
   color: $light-gray;
-  background: linear-gradient(right, transparentize($teal, .2), transparentize($teal, .2));
+  font-size: 1.5rem;
+  white-space: nowrap;
+  overflow-x: scroll;
+  background: linear-gradient(right, transparentize($teal, .3), transparentize($green, .3));
+  @media (max-width: $mq-petite) {
+    font-size: 1.25rem;
+    padding-left: 1rem;
+  }
+  @media (max-width: 500px) {
+    font-size: 1rem;
+  }
 }
 
 #{$p} .container h1:after {
@@ -40,14 +50,27 @@ $p: '.places';
   @include omega;
 
   a {
-  @include button;
-  margin-top: 0;
+    @include button;
+    margin-top: 0;
+  }
+
+  @media (max-width: $mq-singlecol) {
+    width: 90%;
+    margin: 2rem 5%;
+    a {
+      width: 50%;
+      margin: 0 auto 1rem auto;
+    }
   }
 }
 
 #{$p}__place {
   @include span-columns(8);
   background: darken($light-gray, 5%);
+  @media (max-width: $mq-singlecol) {
+    width: 90%;
+    margin: 0 5%;
+  }
 }
 
 #{$p}__meta,
@@ -66,10 +89,18 @@ $p: '.places';
 #{$p}__meta {
   width: 30%;
   padding-left: 2rem;
+  margin-top: .5rem;
+  @media (max-width: $mq-petite) {
+    width: 95%;
+    margin: 0 2.5%;
+  }
 }
 
 #{$p}__meta__item {
   color: $teal;
+  @media (max-width: $mq-singlecol) {
+    margin: .25rem 0;
+  }
 }
 #{$p}__meta__item + #{$p}__meta__item {
   color: desaturate($teal, 20%);
@@ -84,5 +115,16 @@ $p: '.places';
   p {
     font-size: 1.5rem;
     font-weight: 100;
+  }
+  @media (max-width: $mq-petite) {
+    width: 95%;
+    margin: 0 2.5%;
+    display: block;
+    padding-left: 2rem;
+    padding-right: 0;
+    p {
+      font-size: 1.25rem;
+      line-height: 1.6;
+    }
   }
 }

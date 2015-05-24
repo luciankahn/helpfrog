@@ -48,3 +48,5 @@ group :tests do
   gem 'launchy'
   gem 'database_cleaner'
 end
+
+gem 'rails_12factor', group: :production

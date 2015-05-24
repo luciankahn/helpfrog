@@ -21,3 +21,9 @@ a {
 ul {
   list-style: none;
 }
+
+.container {
+  @include outer-container(1000px);
+  @include clearfix;
+  height: 100%;
+}

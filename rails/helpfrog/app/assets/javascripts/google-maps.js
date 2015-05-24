@@ -22,18 +22,34 @@ $(document).ready(function() {
         var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
       // for each array in the response, drop a marker using the latitude and longitude.
         var marker;
+        var image = 'assets/dot.svg';
+        var pinColor = "00C69D";
+        var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor,
+        new google.maps.Size(21, 34),
+        new google.maps.Point(0,0),
+        new google.maps.Point(10, 34));
+        var pinShadow = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_shadow",
+        new google.maps.Size(40, 37),
+        new google.maps.Point(0, 0),
+        new google.maps.Point(12, 35));
+
         for (var i=0; i<places.length; i++) {
           marker = new google.maps.Marker({
             position: new google.maps.LatLng(places[i][0], places[i][1]),
             map: map,
             title: places[i][2],
-            place_id: places[i][3]
+            place_id: places[i][3],
+            iteration: i,
+            icon: pinImage,
+            shadow: pinShadow
           })
           google.maps.event.addListener(marker, 'click', function() {
-              var path = ((window.location.href).split('/result')[0]);
-              window.location.assign(path + "/places/" + this.place_id);
-            });
-        }
+            var path = ((window.location.href).split('/result')[0]);
+            window.location.assign(path + "/places/" + this.place_id);
+          });
+      }
+
+
       }
       initialize();
     }).fail(function(response) {

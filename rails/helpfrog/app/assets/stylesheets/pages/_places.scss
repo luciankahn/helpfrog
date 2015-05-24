@@ -1,0 +1,88 @@
+$p: '.places';
+
+#{$p} .title {
+  height: 12rem;
+  margin-bottom: 3rem;
+}
+
+#{$p} .container {
+  text-align: center;
+}
+
+#{$p} .container h1 {
+  -webkit-margin-before: 0;
+  margin-before: 0;
+  -webkit-margin-after: 0;
+  margin-after: 0;
+  font-weight: 100;
+  display: block;
+  color: $medium-gray;
+  padding: 0 2rem;
+  width: 100%;
+  line-height: 4rem;
+  height: 4rem;
+  color: $light-gray;
+  background: linear-gradient(right, transparentize($teal, .2), transparentize($teal, .2));
+}
+
+#{$p} .container h1:after {
+  //content: '';
+  width: 100%;
+  height: 1px;
+  display: block;
+  position: relative;
+  bottom: -15px;
+  background: $dark-gray;
+}
+
+#{$p}__nav {
+  @include span-columns(4);
+  @include omega;
+
+  a {
+  @include button;
+  margin-top: 0;
+  }
+}
+
+#{$p}__place {
+  @include span-columns(8);
+  background: darken($light-gray, 5%);
+}
+
+#{$p}__meta,
+#{$p}__description {
+  text-align: left;
+  margin: 0 2.5%;
+  float: left;
+}
+
+#{$p}__categories {
+  p {
+    font-weight: 100;
+  }
+}
+
+#{$p}__meta {
+  width: 30%;
+  padding-left: 2rem;
+}
+
+#{$p}__meta__item {
+  color: $teal;
+}
+#{$p}__meta__item + #{$p}__meta__item {
+  color: desaturate($teal, 20%);
+}
+#{$p}__meta__item + #{$p}__meta__item + #{$p}__meta__item {
+  color: desaturate($teal, 40%);
+}
+
+#{$p}__description {
+  width: 60%;
+  padding-right: 2rem;
+  p {
+    font-size: 1.5rem;
+    font-weight: 100;
+  }
+}

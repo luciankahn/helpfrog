@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby "2.1.2"
+#ruby "2.1.2"
 gem 'rails', '~> 4.2.1'
 
 # Bundle edge Rails instead:
@@ -17,6 +17,8 @@ gem 'autoprefixer-rails'
 gem 'bourbon', '>= 4.2'
 gem 'neat', '>= 1.7.2'
 gem 'jquery-rails'
+
+gem 'thin'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

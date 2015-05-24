@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   $('#previous-results').on('click', function(event) {
     event.preventDefault();
-    console.log("It's working!");
+    window.history.go(-1);
   })
 
   // ajax call if the current page is the results page

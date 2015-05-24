@@ -10,7 +10,7 @@
         <li>
           <%= link_to place.name, place_path(place) %>
           <p><%= place.address %></p>
-          <a href="tel:<%= place.phone_number %>"><%= place.phone_number %></p>
+          <a href="tel:<%= place.phone_number %>"><%= place.phone_number %></a>
           <p>Category: <% place.categories.each do |cat| %>
               <%= link_to cat.name, category_path(cat) %>
             <% end %></p></li>

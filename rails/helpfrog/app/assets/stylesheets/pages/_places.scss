@@ -16,7 +16,6 @@ $p: '.places';
   margin-after: 0;
   font-weight: 100;
   display: block;
-  color: $medium-gray;
   padding: 0 2rem;
   width: 100%;
   line-height: 4rem;
@@ -25,6 +24,7 @@ $p: '.places';
   font-size: 1.5rem;
   white-space: nowrap;
   overflow-x: scroll;
+  overflow-y: auto;
   background: linear-gradient(right, transparentize($teal, .3), transparentize($green, .3));
   @media (max-width: $mq-petite) {
     font-size: 1.25rem;

@@ -13,3 +13,5 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+rails/helpfrog/tmp
+rails/helpfrog/log
